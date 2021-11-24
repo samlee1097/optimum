@@ -1,0 +1,14 @@
+#navbar{
+    display: flex;
+    flex-direction: row;
+    width: 98.5%;
+    float: left;
+    padding: 10px 15px 5px 5px;
+    position: fixed;
+    z-index: 2;
+    margin-top: -10px;
+}
+
+.buttons{
+    margin-left: auto;
+  }

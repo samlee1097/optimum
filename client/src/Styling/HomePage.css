@@ -1,0 +1,26 @@
+.first-phase,
+.second-phase {
+    font-weight: lighter;
+    margin: 0.4em 0;
+}
+.first-phase { 
+    font-size: 3.5em; 
+    font-family: 'Kanit', sans-serif;
+}
+
+.second-phase {
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+}
+
+.container{
+    padding: 1em 2em;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    position: relative;
+    top: 300px;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
