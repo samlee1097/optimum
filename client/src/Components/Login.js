@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import login from '../Assets/login.jpg'
 import '../Styling/Login.css'
 
 function Login({ setCurrentUser }) {
@@ -22,7 +23,7 @@ function Login({ setCurrentUser }) {
         if (res.ok) {
             res.json().then(user => {
             setCurrentUser(user)
-            history.push("/")
+            history("/")
 
             })
         } else {
@@ -36,20 +37,20 @@ function Login({ setCurrentUser }) {
     return (
       <>
         <div className="authForm">
-
             <form onSubmit={handleSubmit} className="login-form">
-                <h1 style={{marginBottom:"40px", marginTop:"45px"}}>Log In</h1>
-                <div style={{color: "red"}}>{error}</div>
+                <h1 style={{marginBottom:"30px", marginTop:"65px", fontSize: "35px"}}>LOGIN</h1>
+            <p className="please-log">Please enter your login and password</p>
             <p>
             <label 
             htmlFor="username"
             style={{marginRight:"5px"}}
             >
-            Username
             </label>
             <input
                 type="text"
                 name="username"
+                className="entry"
+                placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
 
@@ -60,24 +61,28 @@ function Login({ setCurrentUser }) {
             htmlFor="password"
             style={{marginRight:"5px"}}
             >
-            Password
             </label>
             <input
             type="password"
             name=""
+            placeholder="Password"
+            className="entry"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={{marginBottom:"8px"}}
             />
         </p>
-        <p><button className="post-button" type="submit" >Log In</button></p>
+        <div className="error">{error}</div>
+        <p><button className="post-button" type="submit" >LOGIN</button></p>
 
-        <p style={{marginTop:"70px"}}> Don't have an account ? </p>
-        <button href="/signup" className="post-button"><Link to="/signup">Sign Up</Link></button>
+        <p style={{marginTop:"150px"}}> Don't have an account ? 
+        <button className="no-account"><Link to="/signup" className="no-account"><strong>Sign Up</strong></Link></button></p>
+        <img className="login-image" src={login} alt="login"/>
         </form>
 
     </div>
     </>
+    
     )
 }
 

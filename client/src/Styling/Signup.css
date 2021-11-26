@@ -1,0 +1,42 @@
+.signup-form{
+    background-color: rgb(46, 46, 46);
+	color: white;
+	font-family: 'Kanit', sans-serif;
+	width: 600px;
+	height: fit-content;
+	padding-bottom: 25px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 30px;
+	height: 600px;
+	left: 50%;
+	top:  50%;
+	z-index: 1;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.authForm{
+	position: inherit;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.no-account:hover{
+	color: white;
+}
+
+.no-account{
+	background-color: transparent;
+	border: transparent;
+	color:rgb(153, 153, 153);
+	text-decoration:none;
+	font-size: 15px;
+}
+
+.error {
+	color: red;
+	position: inherit;
+	margin-left: 130px;
+}

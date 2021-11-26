@@ -16,18 +16,18 @@ function App() {
       <div class="bg"></div>
       <div class="bg bg2"></div>
       <div class="bg bg3"></div>
-      <Router>
-      <Fragment>
-        <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-        <Routes>
-          <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
-          <Route exact path="/profile" element={<ProfilePage/>}/>
-          <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
-          <Route exact path="/login" element={<Login setCurrentUser= {setCurrentUser}/>}/>
-          <Route exact path="/" element={<HomePage setCurrentUser= {setCurrentUser}/>}/>
-        </Routes>
-      </Fragment>
-    </Router>
+        <Router>
+          <Fragment>
+           <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+            <Routes>
+              <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
+              <Route exact path="/profile" element={<ProfilePage/>}/>
+              <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
+              <Route exact path="/login" element={<Login setCurrentUser= {setCurrentUser}/>}/>
+              <Route exact path="/" element={<HomePage setCurrentUser= {setCurrentUser}/>}/>
+            </Routes>
+          </Fragment>
+        </Router>
     </>
     );
 }

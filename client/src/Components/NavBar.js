@@ -1,23 +1,34 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import {useNavigate } from 'react-router-dom'
 import logo from '../Assets/logo.png'
 import '../Styling/NavBar.css'
 
 const linkStyles = {
     display: "inline-block",
     width: "fit-content",
-    padding: "5px 10px",
+    padding: "2px 12px 7px 12px",
     margin: "6px",
     background: "white",
     textDecoration: "none",
-    color: "30, 0, 71",
+    color: "black",
     borderRadius: "20px",
     textAlign: "center",
     border: "transparent",
     height: "fit-content",
+    fontFamily: "'Kanit', sans-serif",
+    height: "20px"
 };
 
+
 function NavBar({setCurrentUser, currentUser}) {
+    
+    const history = useNavigate()
+
+    function handleClick() {
+        history("/")
+        window.location.reload();
+    }
 
     function logout (){
         fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -30,7 +41,7 @@ function NavBar({setCurrentUser, currentUser}) {
     return (
        <div id="navbar">
             <NavLink to="/" exact> 
-                <a href="/"><img style={{height:"80px"}} src={logo} alt="logo"/></a>
+                <a href="/"><img style={{height:"48px"}} onClick={()=>handleClick()} src={logo} alt="logo"/></a>
             </NavLink>
 
             {currentUser && (

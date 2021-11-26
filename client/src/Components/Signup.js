@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import '../Styling/Login.css'
+import '../Styling/Signup.css'
 
 function Signup({ setCurrentUser }) {
   const history = useNavigate()
@@ -26,7 +26,7 @@ function Signup({ setCurrentUser }) {
         if (res.ok) {
           res.json().then(user => {
             setCurrentUser(user)
-            history.push('/')
+            history('/')
           })
         } else {
           res.json().then(errors => {
@@ -38,8 +38,10 @@ function Signup({ setCurrentUser }) {
   return (
     <>
     <div className="authForm">
-      <form style={{padding: "45.5px 0px"}} onSubmit={handleSubmit} className="login-form">
-        <h1>Sign Up</h1>
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <h1 style={{marginBottom:"30px", marginTop:"50px", fontSize: "40px"}}>SIGNUP</h1>
+            <p className="please-log">Please enter your login and password</p>
+
         <p>
           <label 
             htmlFor="username"
@@ -49,7 +51,9 @@ function Signup({ setCurrentUser }) {
           </label>
           <input
             type="text"
+            className="entry"
             name="username"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -63,6 +67,8 @@ function Signup({ setCurrentUser }) {
           </label>
           <input
             type="password"
+            className="entry"
+            placeholder="Password"
             name=""
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -77,16 +83,17 @@ function Signup({ setCurrentUser }) {
           </label>
           <input
             type="text"
+            className="entry"
             name=""
             value={image}
             onChange={(e) => setImage(e.target.value)}
           />
         </p>
         
-        <div style={{color: "red"}}>{error}</div>
-        <p><button className="post-button" type="submit">Sign Up</button></p>
-        <p>-- or --</p>
-        <button href="/login" className="post-button"><Link to="/login">Log In</Link></button>
+        <div className="error">{error}</div>
+        <p><button className="post-button" type="submit">SIGNUP</button></p>
+        <p style={{marginTop:"89px"}}> Already have an account ? 
+        <button className="no-account"><Link to="/login" className="no-account"><strong>Log In</strong></Link></button></p>
       </form>
     </div>
     

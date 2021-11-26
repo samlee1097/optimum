@@ -9,6 +9,7 @@ let TxtRotate = function(el, toRotate, period) {
   };
   
   TxtRotate.prototype.tick = function() {
+    
     let i = this.loopNum % this.toRotate.length;
     let fullTxt = this.toRotate[i];
   
@@ -54,5 +55,3 @@ let TxtRotate = function(el, toRotate, period) {
     css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
     document.body.appendChild(css);
   };
-
-  console.log(window.href.location)
