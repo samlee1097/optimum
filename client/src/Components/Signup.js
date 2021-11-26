@@ -6,7 +6,9 @@ function Signup({ setCurrentUser }) {
   const history = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [image, setImage] = useState('')
+  const [age, setAge] = useState(0)
+  const [gender, setGender] = useState("")
+  const [weight, setWeight] = useState(0)
   const  [error, setError] = useState('')
   
   const handleSubmit = (event) => {
@@ -19,7 +21,9 @@ function Signup({ setCurrentUser }) {
       body: JSON.stringify({
         username,
         password,
-        image
+        age,
+        weight,
+        gender
       })
     })
       .then(res => {
@@ -51,7 +55,7 @@ function Signup({ setCurrentUser }) {
           </label>
           <input
             type="text"
-            className="entry"
+            className="signup-entry"
             name="username"
             placeholder="Username"
             value={username}
@@ -61,13 +65,13 @@ function Signup({ setCurrentUser }) {
         <p>
           <label 
             htmlFor="password"
-            style={{marginRight:"5px"}}
+            style={{marginRight:"10px"}}
           >
             Password
           </label>
           <input
             type="password"
-            className="entry"
+            className="signup-entry"
             placeholder="Password"
             name=""
             value={password}
@@ -76,23 +80,69 @@ function Signup({ setCurrentUser }) {
         </p>
         <p>
           <label 
-            htmlFor="image"
-            style={{marginRight:"35px"}}
+            htmlFor="age"
+            style={{marginLeft:"-155px"}}
           >
-            Image
+            Age
           </label>
           <input
-            type="text"
-            className="entry"
-            name=""
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            type="number"
+            min="0"
+            max="99"
+            className="signup-entry-age"
+            name="age"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
           />
         </p>
         
+        <p style={{position:"relative", top:"-68px", left:"310px", width: "150px"}}>
+          <label 
+            htmlFor="weight"
+          >
+            Weight
+          </label>
+          <input
+            type="number"
+            min="0"
+            max="599"
+            className="signup-entry-weight"
+            name="weight"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+          />
+        </p>
+
+        <p style={{marginTop:"-50px"}}>
+          <input
+            type="radio"
+            label="Male"
+            className="signup-entry-gender"
+            name="gender"
+            value="Male"
+            onChange={(e) => setGender(e.target.value)}
+          />
+          <input
+            type="radio"
+            label="Female"
+            className="signup-entry-gender"
+            name="gender"
+            value="Female"
+            onChange={(e) => setGender(e.target.value)}
+          />
+          <input
+            type="radio"
+            label="Other"
+            className="signup-entry-gender"
+            name="gender"
+            value="Other"
+            onChange={(e) => setGender(e.target.value)}
+          />
+        </p>
+
         <div className="error">{error}</div>
         <p><button className="post-button" type="submit">SIGNUP</button></p>
-        <p style={{marginTop:"89px"}}> Already have an account ? 
+        <p style={{marginTop:"49px"}}> Already have an account ? 
         <button className="no-account"><Link to="/login" className="no-account"><strong>Log In</strong></Link></button></p>
       </form>
     </div>
