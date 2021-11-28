@@ -9,12 +9,16 @@ class UsersController < ApplicationController
         else
         render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
-    end    
+    end 
+
+    def index
+        render json: User.all
+    end
     
     # Show a specific user as well as all of their posts
     def show
         if current_user
-        render json: current_user, serializer: UserDetailSerializer, status: :ok
+        render json: current_user
         else
         render json: { error: 'No active session' }, status: :unauthorized
         end
