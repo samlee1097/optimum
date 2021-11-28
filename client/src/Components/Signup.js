@@ -105,7 +105,7 @@ function Signup({ setCurrentUser }) {
           <input
             type="number"
             min="0"
-            max="599"
+            max="999"
             className="signup-entry-weight"
             name="weight"
             value={weight}
