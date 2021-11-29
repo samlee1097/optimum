@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar';
 import HomePage from "./Components/HomePage/HomePage";
 import Signup from "./Components/Signup";
 import Login from "./Components/Login";
+import Loading from "./Components/Loading";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
 import NewLog from "./Components/HomePage/NewLog";
 import Avatar from "./Components/Avatar/Avatar";
@@ -43,12 +44,11 @@ function App() {
            <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             <Routes>
               <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
-              <Route exact path="/profile" element={<ProfilePage setCurrentUser={setCurrentUser} logs={logs} currentUser={currentUser} />}/>
-              <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
+              <Route exact path="/profile" element={<ProfilePage logs={logs} currentUser={currentUser} />}/>
               <Route exact path="/login" element={<Login setCurrentUser= {setCurrentUser}/>}/>
-              <Route exact path="/new-log" element={<NewLog currentUser={currentUser}setCurrentUser= {setCurrentUser}/>}/>
-              <Route exact path="/avatar" element={<Avatar/>}/>
-              <Route exact path="/" element={<HomePage setCurrentUser= {setCurrentUser}/>}/>
+              <Route exact path="/new-log" element={<NewLog currentUser={currentUser} setCurrentUser= {setCurrentUser}/>}/>
+              {currentUser ? <Route exact path="/avatar" element={<Avatar currentUser={currentUser}/>}/> : <Route exact path="/loading" element={<Loading/>}/>}
+              <Route exact path="/" element={<HomePage currentUser={currentUser} setCurrentUser= {setCurrentUser}/>}/>
             </Routes>
           </Fragment>
         </Router>

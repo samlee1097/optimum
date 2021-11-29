@@ -4,10 +4,10 @@ class UsersController < ApplicationController
     def create
         user = User.create(user_params)
         if user.valid?
-        session[:user_id] = user.id
-        render json: user, status: :created
+            session[:user_id] = user.id
+            render json: user, status: :created
         else
-        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
     end 
 
@@ -18,9 +18,9 @@ class UsersController < ApplicationController
     # Show a specific user as well as all of their posts
     def show
         if current_user
-        render json: current_user
+            render json: current_user, serializer: UserDetailsSerializer
         else
-        render json: { error: 'No active session' }, status: :unauthorized
+            render json: { error: 'No active session' }, status: :unauthorized
         end
     end
 

@@ -45,9 +45,9 @@ function NavBar({setCurrentUser, currentUser}) {
             {currentUser && (
             <div className="logged-in-nav">
                 <div className="greeting">
-                    <p style={{color:"white"}}>logged in as <strong>{currentUser.username}</strong></p>
+                    <p className="logged">logged in as <strong>{currentUser.username}</strong></p>
                 </div>
-                <a href="/profile "><img className="user-icon" src={currentUser.image} alt=" " ></img> </a>
+                <a href="/profile "><img className="nav-icon" src={currentUser.avatar.image} alt="icon" ></img> </a>
                 <NavLink
                     className="login-button"
                     to="/new-log"
@@ -67,7 +67,7 @@ function NavBar({setCurrentUser, currentUser}) {
             </div>
             )}
 
-            {currentUser === null && (
+            {currentUser ? (
                 <div className="buttons">
                     <NavLink
                         className="login-button"
@@ -85,7 +85,7 @@ function NavBar({setCurrentUser, currentUser}) {
                         > Signup 
                     </NavLink> 
 
-                </div>)}
+                </div>) : null}
        </div>
     );
 }

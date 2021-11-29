@@ -3,7 +3,6 @@ import {useNavigate } from 'react-router-dom'
 import Details from './Details';
 import Graphs from './Graphs';
 import LogsContainer from './LogsContainer';
-import image from '../../Assets/login.jpg'
 import edit from '../../Assets/edit.png'
 import '../../Styling/ProfilePage.css'
 
@@ -15,9 +14,9 @@ function ProfilePage({currentUser, logs}) {
     return (
        <div>
            {currentUser ? <> 
-            <img className="avatar" src={image} alt="avatar"/>
+            <img className="avatar" src={currentUser.avatar.image} alt="avatar"/>
             <img className="edit-avatar-button" src={edit} alt="avatar-edit" onClick={()=> history('/avatar')}></img>
-            <h1 className="details">@{currentUser.username}</h1></>: null} 
+            <h1 className="details">@{currentUser.username}</h1></> : null} 
 
            <Details currentUser={currentUser}/>
            <Graphs filteredList={filteredList}/>

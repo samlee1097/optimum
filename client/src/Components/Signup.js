@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import '../Styling/Signup.css'
 
 function Signup({ setCurrentUser }) {
+  
   const history = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')

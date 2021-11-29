@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :logs
+    has_one :avatar
 
     validates :username, :password, :age, :weight, :gender, presence: true
     validates :username, uniqueness: true

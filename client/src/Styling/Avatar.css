@@ -1,5 +1,5 @@
 .avatar-edit-container{
-    padding-top: 100px;
+    padding-top: 70px;
 }
 
 .avatar-edit{
@@ -12,14 +12,15 @@
     border:5px solid white;
     box-shadow: 10px 10px 7px rgb(0, 0, 0, 0.5);
     object-fit:cover;
+    margin-bottom: -10px;
 }
 
 .left-arrow{
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     top: 65px;
     left: 42%;
-    width: 30px;
+    width: 27px;
     color: white;
     overflow: hidden;
 }
@@ -27,9 +28,9 @@
 .right-arrow{
     position: relative;
     margin-bottom: 5px;
-    top: 28px;
+    top: 35px;
     left: 57%;
-    width: 30px;
+    width: 27px;
     color: white;
     overflow: hidden;
 }
@@ -50,7 +51,7 @@
 
 .right-arrow:active{
     position:relative;
-    top: 29.5px;
+    top: 33.5px;
     cursor: pointer;
 }
 
@@ -63,4 +64,25 @@
 .right-arrow,
 .left-arrow:hover{
     cursor: pointer;
+}
+
+.submit{
+    position: relative;
+    display:block;
+    width: 125px;
+	height: 45px;
+	margin-top: 70px;
+	font-size: 13px;
+	border-radius: 5px;
+	border: 2px solid white;
+	background-color: transparent;
+	color: white;
+	cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
+    left: 10px;
+}
+
+.submit:hover{
+	cursor: pointer;
 }

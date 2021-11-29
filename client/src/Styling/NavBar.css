@@ -3,7 +3,7 @@
     flex-direction: row;
     width: 98.5%;
     float: left;
-    padding: 10px 15px 5px 5px;
+    padding: 15px 15px 5px 15px;
     position: fixed;
     z-index: 2;
     margin-top: -10px;
@@ -11,7 +11,16 @@
 
 .buttons{
     margin-left: auto;
-  }
+}
+
+.logged{
+    color: transparent;
+    height: 50px;
+}
+
+.logged:hover{
+    color: white;
+}
 
 .logged-in-nav{
     color: white;
@@ -25,4 +34,10 @@
     float:right;
     right: 0;
     width: auto;
+}
+
+.nav-icon{
+    position: relative;
+    margin: 0px 5px;
+    width: 45px;
 }

@@ -1,17 +1,20 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom'
 import * as style from '@dicebear/big-smile';
 import left from '../../Assets/left-arrow.png'
 import right from '../../Assets/right-arrow.png'
 import '../../Styling/Avatar.css'
 
-function Avatar() {
-   
-   const [mouth, setMouth] = useState(0) //8 mouths
-   const [eyes, setEyes] = useState(0) //8 eyes
-   const [hair, setHair] = useState(0) //13 hair
-   const [accessories, setAccessories] = useState(0) //8 accessories
-   const [skinColor, setSkinColor] = useState(0) //8 skin color
-   const [hairColor, setHairColor] = useState(0)//8 hair color
+function Avatar({ currentUser }) {
+
+   const history = useNavigate()
+   const [mouth, setMouth] = useState(currentUser.avatar.mouth) //8 mouths
+   const [eyes, setEyes] = useState(currentUser.avatar.eyes) //8 eyes
+   const [hair, setHair] = useState(currentUser.avatar.hair) //13 hair
+   const [accessories, setAccessories] = useState(currentUser.avatar.accessory) //8 accessories
+   const [skinColor, setSkinColor] = useState(currentUser.avatar.skinColor) //8 skin color
+   const [hairColor, setHairColor] = useState(currentUser.avatar.hairColor)//8 hair color
+   const [image, setImage] = useState(currentUser.avatar.image)
 
    const URL = `https://avatars.dicebear.com/api/big-smile/:seed.svg?mouth[]=${style.schema.properties.mouth.default[mouth]}&eyes[]=${style.schema.properties.eyes.default[eyes]}&hair[]=${style.schema.properties.hair.default[hair]}&accessories[]=${style.schema.properties.accessories.default[accessories]}&skinColor[]=${style.schema.properties.skinColor.default[skinColor]}&hairColor[]=${style.schema.properties.hairColor.default[hairColor]}`;
 
@@ -23,6 +26,9 @@ function Avatar() {
          // Goes to the left of the list when left button is clicked
          if (e.target.alt === "left"){
             newValue = (parseInt(e.target.id) - 1) % 13
+            if(newValue < 0){
+               newValue +=13
+            }
          } else{
             newValue = (parseInt(e.target.id) + 1) % 13
          }
@@ -30,11 +36,14 @@ function Avatar() {
          // Goes to the left of the list when left button is clicked
          if (e.target.alt === "left"){
             newValue = (parseInt(e.target.id) - 1) % 8
+            if(newValue < 0){
+               newValue +=8
+            }
          } else{
             newValue = (parseInt(e.target.id) + 1) % 8
          }
       }
-
+ 
       //Updates the states of the attribute according to the name
       switch(e.target.name){
          case "hair":
@@ -58,11 +67,40 @@ function Avatar() {
          default:
             break;
       }
+      setImage(URL);
    }
-   
-    return (
+   const handleSubmit = (event) => {
+      event.preventDefault()
+      fetch('/edit-avatar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          hair,
+          hairColor,
+          eyes,
+          mouth,
+          accessory: accessories,
+          skinColor,
+          image
+
+        })
+      })
+        .then(res => {
+          if (res.ok) {
+            res.json().then( user => {
+               history('/profile')
+               window.location.reload()
+            })
+          } else {
+            res.json()
+          }
+        })
+    }
+     return (
        <div className="avatar-edit-container">
-         <img className="avatar-edit" src={URL} alt="avatar"></img>
+         <img className="avatar-edit" src={image} alt="avatar"></img>
          <div>
             <img className="left-arrow" onClick={handleClick} name="hair" id={hair} src={left} alt="left"></img>
             <p className="detail">Hair</p>
@@ -93,6 +131,7 @@ function Avatar() {
             <p className='detail'>Accessory</p>
             <img className="right-arrow" onClick={handleClick} name="accessory" id={accessories} src={right} alt="right"></img>
          </div>
+         <button className="submit" onClick={handleSubmit}>SAVE</button>
        </div>
     );
 }
