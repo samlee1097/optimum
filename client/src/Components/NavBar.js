@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { NavLink } from "react-router-dom";
 import {useNavigate } from 'react-router-dom'
 import logo from '../Assets/logo.png'
@@ -31,8 +31,8 @@ function NavBar({setCurrentUser, currentUser}) {
     function logout (){
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
+                setCurrentUser(null);
                 window.location.reload();
-                setCurrentUser(" ");
             }
         })
     }
@@ -42,12 +42,12 @@ function NavBar({setCurrentUser, currentUser}) {
                 <a href="/"><img style={{height:"48px"}} onClick={()=>handleClick()} src={logo} alt="logo"/></a>
             </NavLink>
 
-            {currentUser ? (
+            {currentUser && (
             <div className="logged-in-nav">
                 <div className="greeting">
                     <p className="logged">logged in as <strong>{currentUser.username}</strong></p>
                 </div>
-                <a href="/profile "><img className="nav-icon" src={currentUser.avatar.image} alt="icon" ></img> </a>
+                <a href="/profile "><img className="nav-icon" src= {currentUser.avatar.image} alt="icon" ></img></a>
                 <NavLink
                     className="login-button"
                     to="/new-log"
@@ -65,7 +65,7 @@ function NavBar({setCurrentUser, currentUser}) {
                     > logout
                 </NavLink>
             </div>
-            ) : null}
+            )}
 
             {currentUser ? (
                 <div className="buttons">

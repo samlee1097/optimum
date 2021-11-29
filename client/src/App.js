@@ -14,7 +14,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
   const [logs, setLogs] = useState([])
-  
+ 
   useEffect(() => {
     fetch('/me', {
       credentials: 'include'

@@ -11,7 +11,7 @@ function Signup({ setCurrentUser }) {
   const [gender, setGender] = useState("")
   const [weight, setWeight] = useState(0)
   const  [error, setError] = useState('')
-  
+   
   const handleSubmit = (event) => {
     event.preventDefault()
     fetch('/signup', {
@@ -40,6 +40,8 @@ function Signup({ setCurrentUser }) {
         }
       })
   }
+
+  
   return (
     <>
     <div className="authForm">

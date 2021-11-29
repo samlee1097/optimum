@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom'
 import * as style from '@dicebear/big-smile';
 import left from '../../Assets/left-arrow.png'
@@ -67,8 +67,13 @@ function Avatar({ currentUser }) {
          default:
             break;
       }
-      setImage(URL);
    }
+
+   // Live changes to the image
+   useEffect(()=>{
+      setImage(URL)
+   },[URL])
+
    const handleSubmit = (event) => {
       event.preventDefault()
       fetch('/edit-avatar', {
@@ -102,34 +107,34 @@ function Avatar({ currentUser }) {
        <div className="avatar-edit-container">
          <img className="avatar-edit" src={image} alt="avatar"></img>
          <div>
-            <img className="left-arrow" onClick={handleClick} name="hair" id={hair} src={left} alt="left"></img>
+            <img className="left-arrow" onClick={(e)=>handleClick(e)} name="hair" id={hair} src={left} alt="left"></img>
             <p className="detail">Hair</p>
-            <img className="right-arrow" onClick={handleClick} name="hair" id={hair} src={right} alt="right"></img>
+            <img className="right-arrow" onClick={(e)=>handleClick(e)} name="hair" id={hair} src={right} alt="right"></img>
          </div>
          <div>
-            <img className="left-arrow" onClick={handleClick} name="eyes" id={eyes} src={left} alt="left"></img>
+            <img className="left-arrow" onClick={(e)=>handleClick(e)} name="eyes" id={eyes} src={left} alt="left"></img>
             <p className='detail'>Eyes</p>
-            <img className="right-arrow" onClick={handleClick} name="eyes" id={eyes} src={right} alt="right"></img>
+            <img className="right-arrow" onClick={(e)=>handleClick(e)} name="eyes" id={eyes} src={right} alt="right"></img>
          </div>
          <div>
-            <img className="left-arrow" onClick={handleClick} name="mouth" id={mouth} src={left} alt="left"></img>
+            <img className="left-arrow" onClick={(e)=>handleClick(e)} name="mouth" id={mouth} src={left} alt="left"></img>
             <p className='detail'>Mouth</p>
-            <img className="right-arrow" onClick={handleClick} name="mouth" id={mouth} src={right} alt="right"></img>
+            <img className="right-arrow" onClick={(e)=>handleClick(e)} name="mouth" id={mouth} src={right} alt="right"></img>
          </div>
          <div>
-            <img className="left-arrow" onClick={handleClick} name="hairColor" id={hairColor} src={left} alt="left"></img>
+            <img className="left-arrow" onClick={(e)=>handleClick(e)} name="hairColor" id={hairColor} src={left} alt="left"></img>
             <p className='detail'>Hair Color</p>
-            <img className="right-arrow" onClick={handleClick} name="hairColor" id={hairColor} src={right} alt="right"></img>
+            <img className="right-arrow" onClick={(e)=>handleClick(e)} name="hairColor" id={hairColor} src={right} alt="right"></img>
          </div>
          <div>
-            <img className="left-arrow" onClick={handleClick} name="skinColor"id={skinColor} src={left} alt="left"></img>
+            <img className="left-arrow" onClick={(e)=>handleClick(e)} name="skinColor"id={skinColor} src={left} alt="left"></img>
             <p className='detail'>Skin Color</p>
-            <img className="right-arrow" onClick={handleClick} name="skinColor" id={skinColor} src={right} alt="right"></img>
+            <img className="right-arrow" onClick={(e)=>handleClick(e)} name="skinColor" id={skinColor} src={right} alt="right"></img>
          </div>
          <div>
-            <img className="left-arrow" onClick={handleClick} name="accessory" id={accessories} src={left} alt="left"></img>
+            <img className="left-arrow" onClick={(e)=>handleClick(e)} name="accessory" id={accessories} src={left} alt="left"></img>
             <p className='detail'>Accessory</p>
-            <img className="right-arrow" onClick={handleClick} name="accessory" id={accessories} src={right} alt="right"></img>
+            <img className="right-arrow" onClick={(e)=>handleClick(e)} name="accessory" id={accessories} src={right} alt="right"></img>
          </div>
          <button className="submit" onClick={handleSubmit}>SAVE</button>
        </div>
