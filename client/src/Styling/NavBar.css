@@ -12,3 +12,17 @@
 .buttons{
     margin-left: auto;
   }
+
+.logged-in-nav{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 98.5%;
+    padding: 10px 15px 5px 5px;
+    z-index: 2;
+    margin-top: -10px;
+    position:absolute;
+    float:right;
+    right: 0;
+    width: auto;
+}

@@ -16,10 +16,8 @@ const linkStyles = {
     textAlign: "center",
     border: "transparent",
     height: "fit-content",
-    fontFamily: "'Kanit', sans-serif",
-    height: "20px"
+    fontFamily: "'Kanit', sans-serif"
 };
-
 
 function NavBar({setCurrentUser, currentUser}) {
     
@@ -47,15 +45,15 @@ function NavBar({setCurrentUser, currentUser}) {
             {currentUser && (
             <div className="logged-in-nav">
                 <div className="greeting">
-                    <p>logged in as <strong>{currentUser.username}</strong></p>
+                    <p style={{color:"white"}}>logged in as <strong>{currentUser.username}</strong></p>
                 </div>
-                <a href="/my-profile "><img className="user-icon" src={currentUser.image} alt=" " ></img> </a>
+                <a href="/profile "><img className="user-icon" src={currentUser.image} alt=" " ></img> </a>
                 <NavLink
                     className="login-button"
-                    to="/new-post"
+                    to="/new-log"
                     exact
                     style={linkStyles}
-                    > + post 
+                    > + log 
                 </NavLink>
 
                 <NavLink
