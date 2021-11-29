@@ -41,7 +41,7 @@ function App() {
       <div class="bg bg3"></div>
         <Router>
           <Fragment>
-           <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+           <NavBar  currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             <Routes>
               <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
               <Route exact path="/profile" element={<ProfilePage logs={logs} currentUser={currentUser} />}/>
