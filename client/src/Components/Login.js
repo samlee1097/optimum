@@ -38,7 +38,7 @@ function Login({ setCurrentUser }) {
       <>
         <div className="authForm">
             <form onSubmit={handleSubmit} className="login-form">
-                <h1 style={{marginBottom:"30px", marginTop:"65px", fontSize: "35px"}}>LOGIN</h1>
+                <h1 style={{marginBottom:"30px", marginTop:"65px", fontSize: "35px"}}>LOGIN </h1>
             <p className="please-log">Please enter your login and password</p>
             <p>
             <label 
