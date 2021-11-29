@@ -42,7 +42,7 @@ function NavBar({setCurrentUser, currentUser}) {
                 <a href="/"><img style={{height:"48px"}} onClick={()=>handleClick()} src={logo} alt="logo"/></a>
             </NavLink>
 
-            {currentUser && (
+            {currentUser ? (
             <div className="logged-in-nav">
                 <div className="greeting">
                     <p className="logged">logged in as <strong>{currentUser.username}</strong></p>
@@ -65,7 +65,7 @@ function NavBar({setCurrentUser, currentUser}) {
                     > logout
                 </NavLink>
             </div>
-            )}
+            ) : null}
 
             {currentUser ? (
                 <div className="buttons">
