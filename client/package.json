@@ -7,6 +7,8 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@dicebear/avatars": "^4.10.1",
+    "@dicebear/big-smile": "^4.10.1",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",

@@ -30,7 +30,7 @@ function Signup({ setCurrentUser }) {
         if (res.ok) {
           res.json().then(user => {
             setCurrentUser(user)
-            history('/profile')
+            history('/avatar')
           })
         } else {
           res.json().then(errors => {
