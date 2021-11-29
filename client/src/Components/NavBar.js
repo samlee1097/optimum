@@ -19,7 +19,7 @@ const linkStyles = {
     fontFamily: "'Kanit', sans-serif"
 };
 
-function NavBar({setCurrentUser, currentUser}) {
+function NavBar({setCurrentUser, currentUser, profileImage}) {
     
     const history = useNavigate()
 
@@ -47,7 +47,7 @@ function NavBar({setCurrentUser, currentUser}) {
                 <div className="greeting">
                     <p className="logged">logged in as <strong>{currentUser.username}</strong></p>
                 </div>
-                <a href="/profile "><img className="nav-icon" src= {currentUser.avatar.image} alt="icon" ></img></a>
+                {profileImage ? <a href="/profile "><img className="nav-icon" src={profileImage}  alt="icon" ></img></a>: null }
                 <NavLink
                     className="login-button"
                     to="/new-log"

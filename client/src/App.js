@@ -13,6 +13,7 @@ import './Styling/App.css'
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
+  const [profileImage, setProfileImage] = useState(null)
   const [logs, setLogs] = useState([])
  
   useEffect(() => {
@@ -23,10 +24,11 @@ function App() {
         if (res.ok) {
           res.json().then((user) => {
             setCurrentUser(user)
+            setProfileImage(user.avatar.image)
           })
         }
       })
-  }, [])
+  }, [currentUser])
 
   useEffect(()=> {
     fetch("/logs")
@@ -41,10 +43,10 @@ function App() {
       <div class="bg bg3"></div>
         <Router>
           <Fragment>
-           <NavBar  currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+           <NavBar  currentUser={currentUser} setCurrentUser={setCurrentUser} profileImage= {profileImage}/>
             <Routes>
               <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
-              <Route exact path="/profile" element={<ProfilePage logs={logs} currentUser={currentUser} />}/>
+              <Route exact path="/profile" element={<ProfilePage logs={logs} currentUser={currentUser} profileImage= {profileImage} />}/>
               <Route exact path="/login" element={<Login setCurrentUser= {setCurrentUser}/>}/>
               <Route exact path="/new-log" element={<NewLog currentUser={currentUser} setCurrentUser= {setCurrentUser}/>}/>
               {currentUser ? <Route exact path="/avatar" element={<Avatar currentUser={currentUser}/>}/> : <Route exact path="/loading" element={<Loading/>}/>}

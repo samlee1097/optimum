@@ -96,7 +96,6 @@ function Avatar({ currentUser }) {
           if (res.ok) {
             res.json().then( user => {
                history('/profile')
-               window.location.reload()
             })
           } else {
             res.json()
