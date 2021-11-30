@@ -12,7 +12,7 @@ class LogsController < ApplicationController
     def create
         log = Log.create!(log_params)
         render json: log, status: :created
-    end
+    end 
 
     def destroy
         log = Log.find(params[:id])

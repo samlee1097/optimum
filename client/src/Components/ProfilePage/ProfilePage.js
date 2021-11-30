@@ -29,7 +29,6 @@ function ProfilePage({ setCurrentUser, currentUser, logs}) {
             {currentUser.avatar !== null ? <img className="avatar" src={currentUser.avatar.image} alt="avatar"/> : null }
             <img className="edit-avatar-button" src={edit} alt="avatar-edit" onClick={()=> history('/avatar')}></img>
             <h1 className="details">@{currentUser.username}</h1></>) }
-
            <Details currentUser={currentUser}/>
            <Graphs filteredList={filteredList}/>
            <LogsContainer filteredList={filteredList}/>

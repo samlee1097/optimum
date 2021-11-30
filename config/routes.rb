@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
+  post "/new-avatar", to: "avatars#create"
   post '/edit-avatar', to: "avatars#update"
   get '/avatar', to: "avatars#show"
   get "/users/:username", to: "users#user_info"

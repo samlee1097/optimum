@@ -10,7 +10,7 @@ function Signup({ setCurrentUser }) {
   const [age, setAge] = useState(0)
   const [gender, setGender] = useState("")
   const [weight, setWeight] = useState(0)
-  const  [error, setError] = useState('')
+  const [error, setError] = useState('')
    
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -29,17 +29,43 @@ function Signup({ setCurrentUser }) {
     })
       .then(res => {
         if (res.ok) {
-          res.json().then(user => {
-            setCurrentUser(user)
-            history('/avatar')
-          })
-        } else {
+          res.json().then(user => { 
+            return fetch('/new-avatar', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                mouth: 0, 
+                eyes: 0, 
+                hair: 0, 
+                skinColor: 0, 
+                hairColor:0, 
+                accessory:0, 
+                image: "https://avatars.dicebear.com/api/big-smile/:seed.svg?mouth[]=openedSmile&eyes[]=cheery&hair[]=shortHair&accessories[]=catEars&skinColor[]=variant01&hairColor[]=variant01",
+                user_id: user.id
+              })
+            }) //end of return fetch
+            .then(res => {
+              if (res.ok) {
+                res.json().then(data => {
+                  setCurrentUser(data)
+                  history('/avatar')
+              })}
+              else {
+                res.json().then(errors => {
+                  setError(errors.errors)
+                })
+              }   
+            })
+          })}
+
+        else {
           res.json().then(errors => {
             setError(errors.errors)
           })
-        }
-      })
-  }
+        }      
+  })}
 
   
   return (

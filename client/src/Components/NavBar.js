@@ -20,7 +20,7 @@ const linkStyles = {
 };
 
 function NavBar({setCurrentUser, currentUser}) {
-    console.log(currentUser)
+
     const history = useNavigate()
 
     function handleClick() {
@@ -32,7 +32,7 @@ function NavBar({setCurrentUser, currentUser}) {
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
                 setCurrentUser(null);
-                window.location.reload();
+                window.location.assign('/')
             }
         })
     }
@@ -68,7 +68,7 @@ function NavBar({setCurrentUser, currentUser}) {
             </div>
             ): null}
 
-            {currentUser ? (
+            {currentUser  !== null ? (
                 <div className="buttons">
                     <NavLink
                         className="login-button"

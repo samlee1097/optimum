@@ -9,6 +9,15 @@ class AvatarsController < ApplicationController
         end
     end
 
+    def create
+        if current_user
+            avatar = Avatar.create!(avatar_params)
+            render json:current_user, status: :created
+        else
+            render json: { error: 'No active session' }, status: :unauthorized
+        end
+    end
+
     def show
         render json: current_user.avatar
     end
