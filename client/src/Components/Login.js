@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import login from '../Assets/login.jpg'
 import '../Styling/Login.css'
 
@@ -7,7 +7,6 @@ function Login({ setCurrentUser }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const history = useNavigate()
     const  [error, setError] = useState('')
 
     const handleSubmit = (event) => {
