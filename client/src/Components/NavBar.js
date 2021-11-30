@@ -28,19 +28,6 @@ function NavBar({setCurrentUser, currentUser}) {
         window.location.reload();
     }
 
-    useEffect(() => {
-        fetch('/me', {
-            credentials: 'include'
-        })
-            .then(res => {
-            if (res.ok) {
-                res.json().then((user) => {
-                setCurrentUser(user)
-                })
-            }
-            })
-        }, [])
-
     function logout (){
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
@@ -61,7 +48,7 @@ function NavBar({setCurrentUser, currentUser}) {
                 <div className="greeting">
                 <p className="logged">logged in as <strong>{currentUser.username}</strong></p> 
                 </div>
-                  <a href="/profile "><img className="nav-icon" src={currentUser ? currentUser?.avatar?.image : null} alt="icon" ></img></a>
+                  {/* <a href="/profile "><img className="nav-icon" src={currentUser ? currentUser?.avatar?.image : null} alt="icon" ></img></a> */}
                 <NavLink
                     className="login-button"
                     to="/new-log"
