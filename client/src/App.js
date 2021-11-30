@@ -12,6 +12,7 @@ import './Styling/App.css'
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
+  const [avatarImage, setAvatarImage] = useState(null)
   const [logs, setLogs] = useState([])
 
   useEffect(()=> {

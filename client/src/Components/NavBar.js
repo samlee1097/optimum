@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { NavLink } from "react-router-dom";
 import {useNavigate } from 'react-router-dom'
 import logo from '../Assets/logo.png'
@@ -27,6 +27,19 @@ function NavBar({setCurrentUser, currentUser}) {
         history("/")
         window.location.reload();
     }
+
+    useEffect(() => {
+        fetch('/me', {
+            credentials: 'include'
+        })
+            .then(res => {
+            if (res.ok) {
+                res.json().then((user) => {
+                setCurrentUser(user)
+                })
+            }
+            })
+        }, [])
 
     function logout (){
         fetch("/logout", { method: "DELETE" }).then((r) => {
