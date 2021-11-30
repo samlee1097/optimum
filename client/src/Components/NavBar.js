@@ -20,7 +20,7 @@ const linkStyles = {
 };
 
 function NavBar({setCurrentUser, currentUser}) {
-    
+    console.log(currentUser)
     const history = useNavigate()
 
     function handleClick() {
@@ -43,11 +43,12 @@ function NavBar({setCurrentUser, currentUser}) {
             </NavLink>
 
             {currentUser ? (
+                
             <div className="logged-in-nav">
                 <div className="greeting">
                 <p className="logged">logged in as <strong>{currentUser.username}</strong></p> 
                 </div>
-                  <a href="/profile "><img className="nav-icon" src={currentUser ? currentUser?.avatar?.image : "https://emoji.gg/assets/emoji/3859_Loading.gif"} alt="icon" ></img></a>
+                  <a href="/profile "><img className="nav-icon" src={currentUser ? currentUser?.avatar?.image : null} alt="icon" ></img></a>
                 <NavLink
                     className="login-button"
                     to="/new-log"
