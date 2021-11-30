@@ -13,7 +13,7 @@ function ProfilePage({currentUser, logs}) {
     return (
        <div>
            {currentUser && (<>
-            <img className="avatar" src={currentUser.avatar.image} alt="avatar"/>
+            {currentUser.avatar.image ? <img className="avatar" src={currentUser.avatar.image} alt="avatar"/> : null }
             <img className="edit-avatar-button" src={edit} alt="avatar-edit" onClick={()=> history('/avatar')}></img>
             <h1 className="details">@{currentUser.username}</h1></>) }
 

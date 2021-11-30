@@ -41,14 +41,14 @@ function App() {
       <div class="bg bg3"></div>
         <Router>
           <Fragment>
-           <NavBar  currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+           <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             <Routes>
               <Route exact path="/signup" element={<Signup setCurrentUser= {setCurrentUser}/>}/>
               <Route exact path="/profile" element={<ProfilePage logs={logs} currentUser={currentUser} />}/>
               <Route exact path="/login" element={<Login setCurrentUser= {setCurrentUser}/>}/>
               <Route exact path="/new-log" element={<NewLog currentUser={currentUser} setCurrentUser= {setCurrentUser}/>}/>
               {currentUser ? <Route exact path="/avatar" element={<Avatar currentUser={currentUser}/>}/> : <Route exact path="/loading" element={<Loading/>}/>}
-              <Route exact path="/" element={<HomePage currentUser={currentUser} setCurrentUser= {setCurrentUser}/>}/>
+              <Route exact path="/" element={<HomePage currentUser={currentUser}/>}/>
             </Routes>
           </Fragment>
         </Router>

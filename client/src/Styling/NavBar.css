@@ -6,7 +6,8 @@
     padding: 15px 15px 5px 15px;
     position: fixed;
     z-index: 2;
-    margin-top: -10px;
+    margin-top: -1px;
+    font-family: "Kanit", sans-serif;
 }
 
 .buttons{
@@ -16,6 +17,7 @@
 .logged{
     color: transparent;
     height: 50px;
+    margin-top: 7px;
 }
 
 .logged:hover{
@@ -40,4 +42,8 @@
     position: relative;
     margin: 0px 5px;
     width: 45px;
+}
+
+.login-button:hover{
+    margin-top: 1px;
 }

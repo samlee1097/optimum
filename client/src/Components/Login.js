@@ -22,10 +22,8 @@ function Login({ setCurrentUser }) {
         .then(res => {
         if (res.ok) {
             res.json().then(user => {
-            history("/profile")
+            window.location.assign("/profile")
             setCurrentUser(user)
-            window.location.reload()
-                
             })
         } else {
             res.json().then(errors => {
