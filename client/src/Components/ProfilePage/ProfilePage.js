@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigate } from 'react-router-dom'
 import Details from './Details';
 import Graphs from './Graphs';
@@ -6,7 +6,20 @@ import LogsContainer from './LogsContainer';
 import edit from '../../Assets/edit.png'
 import '../../Styling/ProfilePage.css'
 
-function ProfilePage({currentUser, logs}) {
+function ProfilePage({ setCurrentUser, currentUser, logs}) {
+    
+    useEffect(() => {
+    fetch('/me', {
+        credentials: 'include'
+    })
+        .then(res => {
+        if (res.ok) {
+            res.json().then((user) => {
+            setCurrentUser(user)
+            })
+        }
+        })
+    }, [])
 
     const filteredList = logs.filter((log) => log.user.username === currentUser.username)
     const history = useNavigate()

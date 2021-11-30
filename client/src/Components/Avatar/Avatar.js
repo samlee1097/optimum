@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom'
 import * as style from '@dicebear/big-smile';
 import left from '../../Assets/left-arrow.png'
 import right from '../../Assets/right-arrow.png'
@@ -7,7 +6,6 @@ import '../../Styling/Avatar.css'
 
 function Avatar({ currentUser }) {
 
-   const history = useNavigate()
    const [mouth, setMouth] = useState(currentUser.avatar.mouth) //8 mouths
    const [eyes, setEyes] = useState(currentUser.avatar.eyes) //8 eyes
    const [hair, setHair] = useState(currentUser.avatar.hair) //13 hair

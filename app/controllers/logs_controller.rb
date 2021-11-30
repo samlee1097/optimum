@@ -30,8 +30,8 @@ class LogsController < ApplicationController
         params.permit(:weight, :activity_type, :title, :activity_duration, :date, :happiness, :notes, :user_id)
     end
 
-    def authorize
-        render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
-    end
+    # def authorize
+    #     render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
+    # end
 
 end

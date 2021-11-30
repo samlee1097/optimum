@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     # Show a specific user as well as all of their posts
     def show
         if current_user
-            render json: current_user, serializer: UserDetailsSerializer
+            render json: current_user
         else
             render json: { error: 'No active session' }, status: :unauthorized
         end

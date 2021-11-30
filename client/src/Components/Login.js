@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import login from '../Assets/login.jpg'
 import '../Styling/Login.css'
 
 function Login({ setCurrentUser }) {
 
+    const history = useNavigate();
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const  [error, setError] = useState('')
@@ -21,8 +22,8 @@ function Login({ setCurrentUser }) {
         .then(res => {
         if (res.ok) {
             res.json().then(user => {
-            window.location.assign("/profile")
             setCurrentUser(user)
+            history("/profile")
             })
         } else {
             res.json().then(errors => {

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { NavLink } from "react-router-dom";
 import {useNavigate } from 'react-router-dom'
 import logo from '../Assets/logo.png'
@@ -42,12 +42,12 @@ function NavBar({setCurrentUser, currentUser}) {
                 <a href="/"><img style={{height:"48px"}} onClick={()=>handleClick()} src={logo} alt="logo"/></a>
             </NavLink>
 
-            {currentUser !== null ? (
+            {currentUser ? (
             <div className="logged-in-nav">
                 <div className="greeting">
                 <p className="logged">logged in as <strong>{currentUser.username}</strong></p> 
                 </div>
-                  <a href="/profile "><img className="nav-icon" src={currentUser?.avatar.image} alt="icon" ></img></a>
+                  <a href="/profile "><img className="nav-icon" src={currentUser ? currentUser.avatar.image : "https://emoji.gg/assets/emoji/3859_Loading.gif"} alt="icon" ></img></a>
                 <NavLink
                     className="login-button"
                     to="/new-log"
