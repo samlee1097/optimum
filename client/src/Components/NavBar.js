@@ -47,7 +47,7 @@ function NavBar({setCurrentUser, currentUser, profileImage}) {
                 <div className="greeting">
                     <p className="logged">logged in as <strong>{currentUser.username}</strong></p>
                 </div>
-                {profileImage ? <a href="/profile "><img className="nav-icon" src={profileImage}  alt="icon" ></img></a>: null }
+                 <a href="/profile "><img className="nav-icon" src={currentUser.avatar.image}  alt="icon" ></img></a>
                 <NavLink
                     className="login-button"
                     to="/new-log"
