@@ -15,7 +15,7 @@ function App() {
   const [logs, setLogs] = useState([])
 
   function addNewLog(new_log){
-    setLogs([new_log, ...logs])
+    setLogs((log) => [new_log, ...log])
   }
 
       

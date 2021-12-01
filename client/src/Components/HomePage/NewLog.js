@@ -43,7 +43,7 @@ function NewLog({addNewLog, currentUser}){
       if (res.ok) {
           res.json().then(log => {
           addNewLog(log);
-          history("/profile")
+          window.location.assign("/profile")
           })
       } else {
           res.json().then(errors => {
