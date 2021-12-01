@@ -3,7 +3,7 @@ class AvatarsController < ApplicationController
         if current_user
             avatar = current_user.avatar
             avatar.update(avatar_params)
-            render json:avatar
+            render json: avatar
         else
             render json: { errors: avatar.errors.full_messages }, status: :unprocessable_entity
         end
@@ -23,6 +23,10 @@ class AvatarsController < ApplicationController
     end
 
     private
+
+    def current_user  
+        User.find_by(id: session[:user_id])
+    end
 
     def avatar_params
         params.permit(:mouth, :hair, :hairColor, :accessory, :skinColor, :eyes, :user_id, :image)

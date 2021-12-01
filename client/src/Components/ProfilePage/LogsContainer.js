@@ -4,7 +4,7 @@ import LogCard from './LogCard';
 function LogsContainer({logs}) {
     return (
        <div>
-           {logs.map((log) => <LogCard log={log}/>)}
+           {logs ? logs.map((log) => <LogCard key={log.id} log={log}/>) : null}
        </div>
     );
 }

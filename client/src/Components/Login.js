@@ -23,7 +23,7 @@ function Login({ setCurrentUser }) {
         if (res.ok) {
             res.json().then(user => {
             setCurrentUser(user)
-            history("/profile")
+            window.location.assign("/profile")
             })
         } else {
             res.json().then(errors => {

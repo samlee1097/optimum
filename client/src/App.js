@@ -18,6 +18,18 @@ function App() {
     setLogs([new_log, ...logs])
   }
 
+      
+  useEffect(() => {
+    fetch('/me', {
+        credentials: 'include'
+    })
+        .then(res => {
+        if (res.ok) {
+            res.json().then(user => {
+            setCurrentUser(user)})
+        }})
+    }, [])
+
   return (
     <>
     <div class="bg"></div>
