@@ -84,5 +84,6 @@
 .error {
 	color: rgb(255, 102, 0);
 	position: inherit;
-	margin-left: 100px;
+	width: fit-content;
+	text-align: center;
 }

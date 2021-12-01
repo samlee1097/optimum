@@ -17,23 +17,15 @@ function NewLog({addNewLog, currentUser}){
   const [error, setError] = useState('')
 
   const newLog = {
-    user_id: currentUser?.id,
-    activityType,
-    duration,
-    dateEntry,
+    user_id: currentUser.id,
+    activity_type: activityType,
+    activity_duration: duration,
+    date: dateEntry,
     weight,
     happiness,
     notes,
     likes: 0
   };
-
-  function handleDate(date){
-    const newDate = String(date).split(" ").slice(1,4).join(' ')
-    setDate(date)
-    setDateEntry(newDate)
-    setShowCalendar(false)
-
-  }
 
   const configObj = {
     method: "POST",
@@ -45,14 +37,13 @@ function NewLog({addNewLog, currentUser}){
   };
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
-    fetch("/posts", configObj)
+    fetch("/new-log", configObj)
     .then(res => {
       if (res.ok) {
-          res.json().then(post => {
-          addNewLog(post);
-          history("/")
+          res.json().then(log => {
+          addNewLog(log);
+          history("/profile")
           })
       } else {
           res.json().then(errors => {
@@ -61,6 +52,14 @@ function NewLog({addNewLog, currentUser}){
       }
       })
   };
+
+  function handleDate(date){
+    const newDate = String(date).split(" ").slice(1,4).join(' ')
+    setDate(date)
+    setDateEntry(newDate)
+    setShowCalendar(false)
+
+  }
 
   return (
     <div className="authForm">
@@ -121,6 +120,7 @@ function NewLog({addNewLog, currentUser}){
         </p>
         <p className="date">Date
           <input
+            disabled
             type="text"
             className="signup-entry-date"
             name="date"

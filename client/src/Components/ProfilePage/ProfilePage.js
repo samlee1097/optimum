@@ -6,7 +6,9 @@ import LogsContainer from './LogsContainer';
 import edit from '../../Assets/edit.png'
 import '../../Styling/ProfilePage.css'
 
-function ProfilePage({ setCurrentUser, currentUser, logs}) {
+function ProfilePage({ setCurrentUser, currentUser}) {
+    
+    const history = useNavigate()
     
     useEffect(() => {
     fetch('/me', {
@@ -14,24 +16,21 @@ function ProfilePage({ setCurrentUser, currentUser, logs}) {
     })
         .then(res => {
         if (res.ok) {
-            res.json().then((user) => {
-            setCurrentUser(user)
-            })
-        }
-        })
+            res.json().then(user => {
+            setCurrentUser(user)})
+        }})
+        .then()
     }, [])
 
-    const filteredList = logs.filter((log) => log.user.username === currentUser.username)
-    const history = useNavigate()
     return (
        <div>
            {currentUser && (<>
             {currentUser.avatar !== null ? <img className="avatar" src={currentUser.avatar.image} alt="avatar"/> : null }
             <img className="edit-avatar-button" src={edit} alt="avatar-edit" onClick={()=> history('/avatar')}></img>
-            <h1 className="details">@{currentUser.username}</h1></>) }
+            <h1 className="details">@{currentUser.username}</h1>
            <Details currentUser={currentUser}/>
-           <Graphs filteredList={filteredList}/>
-           <LogsContainer filteredList={filteredList}/>
+           <Graphs logs={currentUser.logs}/>
+           <LogsContainer logs={currentUser.logs}/></>) }
        </div>
     );
 }

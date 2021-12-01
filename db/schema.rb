@@ -29,14 +29,13 @@ ActiveRecord::Schema.define(version: 2021_11_29_182325) do
   end
 
   create_table "logs", force: :cascade do |t|
-    t.string "title"
     t.integer "weight"
     t.string "activity_type"
-    t.string "activity_duration"
+    t.integer "activity_duration"
     t.string "date"
     t.integer "happiness"
     t.string "notes"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
