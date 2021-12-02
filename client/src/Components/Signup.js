@@ -10,7 +10,7 @@ function Signup({ setCurrentUser }) {
   const [age, setAge] = useState(0)
   const [gender, setGender] = useState("")
   const [weight, setWeight] = useState(0)
-  const [error, setError] = useState('')
+  const [error, setError] = useState([])
    
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -67,6 +67,7 @@ function Signup({ setCurrentUser }) {
         }      
   })}
 
+  const errorList = error.map((error_message) => <p>{error_message}</p>)
   
   return (
     <>
@@ -169,7 +170,7 @@ function Signup({ setCurrentUser }) {
           />
         </p>
 
-        <div className="error">{error}</div>
+        <div className="error-signup">{errorList}</div>
         <p><button className="post-button" type="submit">SIGNUP</button></p>
         <p style={{marginTop:"49px"}}> Already have an account ? 
         <button className="no-account"><Link to="/login" className="no-account"><strong>Log In</strong></Link></button></p>

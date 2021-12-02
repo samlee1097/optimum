@@ -70,7 +70,7 @@ function Login({ setCurrentUser }) {
             style={{marginBottom:"8px"}}
             />
         </p>
-        <div className="error">{error}</div>
+        <div className="error-login">{error}</div>
         <p><button className="post-button" type="submit" >LOGIN</button></p>
 
         <p style={{marginTop:"150px"}}> Don't have an account ? 
