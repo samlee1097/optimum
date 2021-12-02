@@ -1,11 +1,9 @@
 import {useState} from 'react'
-import { useNavigate} from 'react-router-dom'
 import Calendar from 'react-calendar';
 import '../../Styling/NewLog.css'
 
 function NewLog({addNewLog, currentUser}){
 
-  const history = useNavigate();
   const [showCalendar, setShowCalendar]= useState(false)
   const [activityType, setActivityType] = useState('')
   const [notes, setNotes] = useState('')
@@ -14,7 +12,7 @@ function NewLog({addNewLog, currentUser}){
   const [dateEntry, setDateEntry] = useState('')
   const [happiness, setHappiness] = useState(null)
   const [weight, setWeight] = useState(null)
-  const [error, setError] = useState('')
+  const [error, setError] = useState([])
 
   const newLog = {
     user_id: currentUser.id,
@@ -52,6 +50,7 @@ function NewLog({addNewLog, currentUser}){
       }
       })
   };
+  const errorList= error.map(error_message => <p className="error-message">{error_message}</p>)
 
   function handleDate(date){
     const newDate = String(date).split(" ").slice(1,4).join(' ')
@@ -194,7 +193,7 @@ function NewLog({addNewLog, currentUser}){
           />
         </p>
 
-        <div className="error">{error}</div>
+        <div className="error">{errorList}</div>
         <p><button className="post-button" type="submit">SUBMIT</button></p>
       </form>
   </div>

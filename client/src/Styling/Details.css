@@ -1,0 +1,10 @@
+.user-details{
+    font-family: "Kanit", sans-serif;
+    border: 1px solid rgb(179, 179, 179);
+    width: 250px;
+    color:white;
+    border-radius: 5px;
+    position: relative;
+    left: 170px;
+    padding: 10px;
+}

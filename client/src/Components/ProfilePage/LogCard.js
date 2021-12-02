@@ -8,8 +8,10 @@ function LogCard({log}) {
                 <div class='info'>
                     <h1 class='title'>{log.activity_type}</h1>
                     <p class='description'>
+                        <span className="log-details">
                         <p>Duration: {log.activity_duration} minutes</p>
                         <p>Date: {log.date}</p>
+                        </span>
                     </p>
                 </div>
             </div>

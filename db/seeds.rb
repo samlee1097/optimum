@@ -12,4 +12,4 @@ end
 
 puts "seeding logs"
 
-Log.create!(user_id: 1, activity_type: "Running", activity_duration: 12, date: "12-12-21", weight: 195, happiness: 3, notes: "I hate running", likes: 0)
+Log.create!(user_id: 1, activity_type: "Running", activity_duration: 12, date: "Dec 12 2021", weight: 195, happiness: 3, notes: "I hate running", likes: 0)

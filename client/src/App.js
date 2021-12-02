@@ -17,7 +17,6 @@ function App() {
   function addNewLog(new_log){
     setLogs((log) => [new_log, ...log])
   }
-
       
   useEffect(() => {
     fetch('/me', {
