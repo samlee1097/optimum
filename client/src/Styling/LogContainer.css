@@ -1,6 +1,7 @@
 .log-controller{
     font-family: "Kanit", sans-serif;
-    background-color: rgb(29, 29, 29);
+    background-color: rgb(44, 44, 44);
+    box-shadow: 10px 5px 5px rgb(39, 39, 39);
     width: 50%;
     padding: 1px 15px;
     position: relative;
@@ -14,6 +15,8 @@
     color: white;
     margin-bottom: 5px;
     left: 5%;
+    margin-top: 35px;
+    font-size: 30px;
 }
 
 .select-filter{

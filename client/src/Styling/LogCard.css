@@ -5,7 +5,7 @@
   width: 90%;
   max-width: 100%;
   margin-bottom: 30px;
-  min-height: 90px;
+  min-height: 60px;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
     0px 5px 8px 0px rgba(0, 0, 0, 0.14),
     0px 1px 14px 0px rgba(0, 0, 0, 0.12);
@@ -17,12 +17,12 @@
 .info {
   position: relative;
   width: 100%;
-  height: 90px;
+  height: 60px;
   background-color: #fff;
   transform: translateY(100%)
-    translateY(-50px)
+    translateY(-15px)
     translateZ(0);
-  transition: transform 0.5s ease-out;
+  transition: transform 0.4s ease-out;
 }
 
 .info:before {
@@ -38,9 +38,9 @@
   background-size: cover;
   opacity: 0.25;
   transform: translateY(-100%)
-    translateY(50px)
+    translateY(15px)
     translateZ(0);
-  transition: transform 0.5s ease-out;
+  transition: transform 0.4s ease-out;
 }
 
 .card:hover .info,
@@ -51,25 +51,28 @@
 
 .title {
   margin: 0;
-  padding: 18px 26px;
-  font-size: 20px;
+  padding: 5px 20px;
+  font-size: 18px;
   line-height: 1;
   color: rgba(0, 0, 0, 0.87);
-}
-
-.description {
-  margin: 0 -30px 5px 0;
-  padding: 0px 24px;
-  font-size: 18px;
 }
 
 .log-details{
   color:black;
   display: flex; 
   justify-content:left;
-  margin-top: -20px;
+  margin-top: -14px;
+  margin-bottom: 10px;
+  width: fit-content;
 }
 
 .log-details p{
   margin-right: 10px;
+}
+
+.extra-details{
+  display: flex; 
+  justify-content:left;
+  float: left;
+  width: fit-content;
 }
