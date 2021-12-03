@@ -1,15 +1,14 @@
 import React from 'react';
-import Graphs from './Graphs'
+import LineChart from '../Charts/Line';
 import "../../Styling/Details.css"
 
-function Details({currentUser}) {
+function Details({logs}) {
+    
     return (
-        currentUser ? <><div className="user-details">
-           <h3>About Me</h3>
-           <p>Logs: {currentUser.logs.length}</p>
-           <p>Created on: {currentUser.created_at.split("T")[0]}</p>
-           <Graphs currentUser={currentUser}/>
-       </div></> : null
+        <div className="user-details">
+            <h2 style={{textAlign:'center'}}>Overview</h2>
+           <LineChart className="log" logs={logs}/>
+       </div>
     );
 }
 
