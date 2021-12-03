@@ -25,7 +25,9 @@ function LogsContainer({logs}) {
                 <option value="duration">Duration</option>
                 <option value="activity">Activity</option>
             </select>
-           {logs ? newList : null}
+            <div className="logs-container-scroll">
+                {logs ? newList : null}
+            </div>
        </div>
     );
 }

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function Graphs() {
+function Graphs({logs}) {
+
     return (
-       <div>
-       </div>
+     <div>
+     </div>
     );
 }
 
 export default Graphs;
+

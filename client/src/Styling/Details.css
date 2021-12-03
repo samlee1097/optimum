@@ -3,8 +3,9 @@
     width: 250px;
     color:white;
     border-radius: 5px;
+    display: block;
     position: relative;
-    left: 170px;
+    left: 155px;
     padding: 10px;
     background-color: rgb(44, 44, 44);
     box-shadow: 10px 5px 5px rgb(39, 39, 39);

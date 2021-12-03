@@ -3,11 +3,12 @@
     background-color: rgb(44, 44, 44);
     box-shadow: 10px 5px 5px rgb(39, 39, 39);
     width: 50%;
-    padding: 1px 15px;
+    padding: 0.3px 15px 20px 15px;
     position: relative;
-    margin: -110px 22% 0 auto;
+    margin: -185px 22% 0 auto;
     border-radius: 20px;
     max-width: 1000px;
+    max-height: 450px;
 }
 
 .log-controller>h2{
@@ -15,7 +16,7 @@
     color: white;
     margin-bottom: 5px;
     left: 5%;
-    margin-top: 35px;
+    margin-top: 25px;
     font-size: 30px;
 }
 
