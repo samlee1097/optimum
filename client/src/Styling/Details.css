@@ -1,14 +1,17 @@
 .user-details{
     font-family: "Kanit", sans-serif;
-    width: 250px;
+    width:290px;
     color:white;
     border-radius: 5px;
     display: block;
     position: relative;
-    left: 155px;
+    left: 125px;
     padding: 10px;
     background-color: rgb(44, 44, 44);
     box-shadow: 10px 5px 5px rgb(39, 39, 39);
     padding: 1px 15px;
     border-radius: 20px;
+    height: 350px;
+    top: 5px;
+    z-index: 5;
 }
