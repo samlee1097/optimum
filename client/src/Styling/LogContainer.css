@@ -3,12 +3,15 @@
     background-color: rgb(44, 44, 44);
     box-shadow: 10px 5px 5px rgb(39, 39, 39);
     width: 50%;
-    padding: 0.3px 15px 20px 15px;
+    padding: 0.3px 15px 30px 15px;
     position: relative;
-    margin: -405px 22% 0 auto;
+    margin: -415px 22% 0 auto;
     border-radius: 20px;
     max-width: 1000px;
-    max-height: 500px;
+    max-height: 480px;
+}
+.logs-container-div{
+    min-height: 360px;
 }
 
 .log-controller>h2{
@@ -27,4 +30,42 @@
     width: fit-content;
     left: 86%;
     font-size: 15px;
+}
+
+.next-page-logs{
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    position: inherit;
+
+}
+
+.next-page-logs button{
+    margin: 0 3px;
+    cursor: pointer;
+    font-family: "Kanit", sans-serif;
+    color:white;
+    left: 125px;
+    padding: 10px;
+    background-color: rgb(44, 44, 44);
+    box-shadow: 10px 5px 5px rgb(39, 39, 39);
+    padding: 1px 15px;
+    border-radius: 20px;
+
+}
+
+.left-page-div{
+    margin-right: 50px;
+}
+
+.right-page-div{
+    margin-left: 50px;
+}
+
+.page-number{
+    color: white;
+    position: relative;
+    font-family: "Kanit", sans-serif;
+    top: -15px;
+    min-width: 10px;
 }

@@ -12,7 +12,7 @@ function HomePage({currentUser}) {
                 data-rotate='[ " Welcome  to Optimum.", "Discover your true potential.", "Realign with your best self." ]'>
             </span>
         </h1>
-        <button onClick={()=>{currentUser ?  history("/home") : history("/login")}} class="button-30"><span class="text">Enter</span></button>
+        <button onClick={()=>{currentUser ?  history("/profile") : history("/login")}} class="button-30"><span class="text">Enter</span></button>
 
        </div>
     );
