@@ -93,7 +93,7 @@ function NewLog({addNewLog, currentUser}){
           <input
             type="number"
             min="0"
-            max="99"
+            max="999"
             className="signup-entry-age"
             name="Duration"
             value={duration}

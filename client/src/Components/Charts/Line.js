@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Line } from "react-chartjs-2";
+import enlarge from '../../Assets/enlarge.png'
 import '../../Styling/Line.css'
 import { Chart, LineController, LineElement, PointElement, LinearScale, Title, CategoryScale } from 'chart.js';
 Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
@@ -17,7 +18,7 @@ function LineChart({logs}) {
     const weight = sortedByDate.map(log=>log.weight)
     const duration = sortedByDate.map(log=>log.activity_duration)
 
-    const [selectedLabel, setSelectedLabel] = useState("Happiness")
+    const [selectedLabel, setSelectedLabel] = useState('Happiness')
     const [selectedData, setSelectedData] = useState(happiness)
 
     const data = {
@@ -28,7 +29,22 @@ function LineChart({logs}) {
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
-        }]
+        }],
+        options: {
+            plugins: {
+                datalabels: {
+                  clamp: true
+                }
+              }
+        }
+    }
+    
+    const [showChart, setShowChart] = useState(true)    
+
+    function handleOverlay(){
+        if (showChart === false){
+            setShowChart(true)
+        }
     }
 
     return (
@@ -43,6 +59,21 @@ function LineChart({logs}) {
             <div className="line-graph" >
                 <Line className="line-graph-self" data={data}/>
             </div>
+            {showChart ? 
+                <img onClick={()=>setShowChart(false)} className="enlarge" src= {enlarge} alt="enlarge"></img> 
+            : 
+                <div className= "modal">
+                    <div className="overlay" onClick={handleOverlay}></div>
+                    <div className="modal-content">
+                        <div className="open-container-details">
+                            <div className="open-color-box"></div>
+                            <h3 className="open-graph-label">{selectedLabel}</h3>
+                        </div>
+                        <Line className="modal-detail" data={data}/>
+                        <button className="close-modal" onClick={()=>setShowChart(true)}>
+                        x</button>
+                    </div>
+                </div>}
        </div>
     );
 }
