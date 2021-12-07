@@ -38,7 +38,7 @@ function NavBar({setCurrentUser, currentUser}) {
     return (
        <div id="navbar">
             <NavLink to="/" exact> 
-                <a href="/"><img style={{height:"48px"}} onClick={()=>handleClick()} src={logo} alt="logo"/></a>
+                <a href="/"><img style={{height:"65px"}} onClick={()=>handleClick()} src={logo} alt="logo"/></a>
             </NavLink>
 
             {currentUser ? (

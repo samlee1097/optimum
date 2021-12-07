@@ -139,6 +139,7 @@
     width: fit-content;
     top: 150px;
 }
+
 .no-activity-loading{
     position: relative;
     margin: 0 auto;
@@ -152,6 +153,20 @@
     color: white;
     position: absolute;
     left: 245px;
-    top: 80px;
-    font-size: 40px;
+    top: 87px;
+    font-size: 33px;
+}
+
+.weight-arrows{
+    width: 50px;
+    position: absolute;
+    left: 180px;
+    top: 118px;
+}
+
+.happiness-level{
+    font-size: 60px;
+    position: absolute;
+    left: 48px;
+    top: 40px;
 }

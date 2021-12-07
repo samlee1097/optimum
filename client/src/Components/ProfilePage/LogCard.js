@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "../../Styling/LogCard.css"
 
-function LogCard({log, setDisplayDetail}) {
+function LogCard({log, handleImage}) {
 
     const [liked, setLiked] = useState(false)
     const [message, setMessage] = useState(false)
@@ -18,7 +18,7 @@ function LogCard({log, setDisplayDetail}) {
                         <div className="extra-details">
                             {message ? <p className="respond" onClick={()=>setMessage(false)}>💬</p> : <p onClick={()=>setMessage(true)}>💬</p>}
                             {liked ? <p onClick={()=>setLiked(false)}>❤️</p> : <p onClick={()=>setLiked(true)}>🤍</p>}
-                            <p onClick={()=> setDisplayDetail(log)} className="see-details">See More...</p>
+                            <p onClick={()=>handleImage(log)} className="see-details">See More...</p>
                         </div>
                     </span>
                 </div>

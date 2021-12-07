@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import LogCard from './LogCard';
 import loading from '../../Assets/loading.gif'
+import twoRight from '../../Assets/-2.png'
+import oneRight from '../../Assets/-1.png'
+import equal from '../../Assets/0.png'
+import oneLeft from '../../Assets/1.png'
+import twoLeft from '../../Assets/2.png'
 import '../../Styling/LogContainer.css'
 
 function LogsContainer({logs, currentUser}) {
@@ -9,7 +14,55 @@ function LogsContainer({logs, currentUser}) {
     const [displayDetail, setDisplayDetail] = useState(null)
     const [displayLogs, setDisplayLogs] = useState(0)
     const [page, setPage] = useState(1)
+    const [weightGoal, setWeightGoal] = useState(0)
+    const [weightImage, setWeightImage] = useState(null)
+    const [happinessLevel, setHappinessLevel] = useState(null)
     const goalWeight = currentUser.goal_weight
+
+    function handleImage(log){
+        setDisplayDetail(log)
+        if(goalWeight - log.weight < 0){
+            if(goalWeight - log.weight < -5){
+                setWeightGoal(-2)
+                setWeightImage(twoRight)
+            } else{
+                setWeightGoal(-1)
+                setWeightImage(oneRight)
+            }
+        } else if(goalWeight - log.weight === 0){
+            setWeightGoal(0)
+            setWeightImage(equal)
+        } else {
+            if(goalWeight - log.weight < 5){
+                setWeightGoal(1)
+                setWeightImage(oneLeft)
+
+            } else{
+                setWeightGoal(2)
+                setWeightImage(twoLeft)
+            }
+        }
+
+        switch (log.happiness){
+            case 1:
+                setHappinessLevel("😣")
+                break;
+            case 2:
+                setHappinessLevel("😟")
+                break;
+            case 3:
+                setHappinessLevel("😐")
+                break;
+            case 4:
+                setHappinessLevel("🙂")
+                break;
+            case 5:
+                setHappinessLevel("😁")
+                break;
+            default:
+                break;
+        }
+    }
 
     let newList = [...logs].sort((a,b) => {
         if (attribute === 'duration'){
@@ -19,7 +72,7 @@ function LogsContainer({logs, currentUser}) {
         } else {
                 return a.activity_type.localeCompare(b.activity_type) 
         }
-    }).map((log) => <LogCard setDisplayDetail={setDisplayDetail} key={log.id} log={log}/>)
+    }).map((log) => <LogCard handleImage={handleImage} setDisplayDetail={setDisplayDetail} key={log.id} log={log}/>)
 
     function start(){
         setDisplayLogs(0)
@@ -27,7 +80,7 @@ function LogsContainer({logs, currentUser}) {
     }
 
     function handleLeft(){
-        if (displayLogs - 4 < 0){
+        if (displayLogs - 4 <= 0){
             setDisplayLogs(0)
             setPage(1)
         } else{
@@ -38,7 +91,11 @@ function LogsContainer({logs, currentUser}) {
 
     function handleRight(){
         if (displayLogs + 4 >= logs.length){
-            setDisplayLogs(Math.floor(logs.length / 4) * 4)
+            if (displayLogs % 4 === 0){
+                setDisplayLogs(logs.length - 4)
+            } else{
+                setDisplayLogs(Math.ceil(logs.length / 4) * 4)
+            }
             setPage(Math.ceil(logs.length / 4))
         } else{
             setDisplayLogs(displayLogs + 4)
@@ -47,7 +104,11 @@ function LogsContainer({logs, currentUser}) {
     }
 
     function end(){
-        setDisplayLogs(Math.floor(logs.length / 4) * 4)
+        if (displayLogs % 4 === 0){
+            setDisplayLogs(logs.length - 4)
+        } else{
+            setDisplayLogs(Math.ceil(logs.length / 4) * 4)
+        }
         setPage(Math.ceil(logs.length / 4))
     }  
 
@@ -79,9 +140,13 @@ function LogsContainer({logs, currentUser}) {
                     {displayDetail ? <div className="display-details-active">
                         <h1>{displayDetail.activity_type}</h1>
                         <p className="date-details">{displayDetail.date} | {displayDetail.activity_duration} min</p>
-                        <p className="happiness-details">Happiness: <br/><strong>{displayDetail.happiness}/5</strong></p>
                         <div>
-                            {currentUser ? <p className="goal-weight">{goalWeight}</p> : null}
+                            <p className="happiness-level">{happinessLevel}</p>
+                            <p className="happiness-details">Happiness: <br/><strong>{displayDetail.happiness}/5</strong></p>
+                        </div>
+                        <div>
+                            <img className="weight-arrows" src={weightImage} alt={weightImage}/>
+                            <p className="goal-weight">{Math.abs(goalWeight - displayDetail.weight)}lbs</p>
                             <p className="weight-details">Weight: <br/><strong>{displayDetail.weight}lbs</strong></p>
                         </div>
                         {displayDetail.notes !=="" ? <p className="notes-details">Note: {displayDetail.notes}</p>: null} </div> 
