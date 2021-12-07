@@ -17,11 +17,9 @@ function Avatar({ currentUser }) {
    const URL = `https://avatars.dicebear.com/api/big-smile/:seed.svg?mouth[]=${style.schema.properties.mouth.default[mouth]}&eyes[]=${style.schema.properties.eyes.default[eyes]}&hair[]=${style.schema.properties.hair.default[hair]}&accessories[]=${style.schema.properties.accessories.default[accessories]}&skinColor[]=${style.schema.properties.skinColor.default[skinColor]}&hairColor[]=${style.schema.properties.hairColor.default[hairColor]}`;
 
    function handleClick(e){
-      
       //Updates the new id and mods by 13 or 8 depending on name of attribute
       let newValue=parseInt(e.target.id);
       if (e.target.name === "hair"){
-         // Goes to the left of the list when left button is clicked
          if (e.target.alt === "left"){
             newValue = (parseInt(e.target.id) - 1) % 13
             if(newValue < 0){
@@ -31,7 +29,6 @@ function Avatar({ currentUser }) {
             newValue = (parseInt(e.target.id) + 1) % 13
          }
       } else {
-         // Goes to the left of the list when left button is clicked
          if (e.target.alt === "left"){
             newValue = (parseInt(e.target.id) - 1) % 8
             if(newValue < 0){
@@ -68,9 +65,7 @@ function Avatar({ currentUser }) {
    }
 
    // Live changes to the image
-   useEffect(()=>{
-      setImage(URL)
-   },[URL])
+   useEffect(()=>{setImage(URL)},[URL])
 
    const handleSubmit = (event) => {
       event.preventDefault()
@@ -87,19 +82,15 @@ function Avatar({ currentUser }) {
           accessory: accessories,
           skinColor,
           image
-
         })
       })
         .then(res => {
-          if (res.ok) {
             res.json().then(() => {
                window.location.assign('/profile')
             })
-          } else {
-            res.json()
-          }
         })
     }
+
      return (
        <div className="avatar-edit-container">
          <img className="avatar-edit" src={image} alt="avatar"></img>

@@ -13,7 +13,6 @@ function HomePage({currentUser}) {
             </span>
         </h1>
         <button onClick={()=>{currentUser ?  history("/profile") : history("/login")}} className="button-30"><span className="text">Enter</span></button>
-
        </div>
     );
 }

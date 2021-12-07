@@ -72,7 +72,6 @@ function Signup({ setCurrentUser }) {
   const errorList = error.map((error_message) => <p>{error_message}</p>)
   
   return (
-    <>
     <div className="authForm">
       <form className="signup-form" onSubmit={handleSubmit}>
         <h1 style={{marginBottom:"30px", marginTop:"50px", fontSize: "40px"}}>SIGNUP</h1>
@@ -195,8 +194,6 @@ function Signup({ setCurrentUser }) {
         <button className="no-account"><Link to="/login" className="no-account"><strong>Log In</strong></Link></button></p>
       </form>
     </div>
-    
-    </>
   )
 }
 

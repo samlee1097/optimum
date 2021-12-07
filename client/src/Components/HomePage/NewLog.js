@@ -192,7 +192,6 @@ function NewLog({addNewLog, currentUser}){
             onChange={(e) => setNotes(e.target.value)}
           />
         </p>
-
         <div className="error">{errorList}</div>
         <p><button className="post-button" type="submit">SUBMIT</button></p>
       </form>

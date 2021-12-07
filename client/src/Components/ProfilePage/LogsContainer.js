@@ -14,7 +14,6 @@ function LogsContainer({logs, currentUser}) {
     const [displayDetail, setDisplayDetail] = useState(null)
     const [displayLogs, setDisplayLogs] = useState(0)
     const [page, setPage] = useState(1)
-    const [weightGoal, setWeightGoal] = useState(0)
     const [weightImage, setWeightImage] = useState(null)
     const [happinessLevel, setHappinessLevel] = useState(null)
     const goalWeight = currentUser.goal_weight
@@ -23,22 +22,17 @@ function LogsContainer({logs, currentUser}) {
         setDisplayDetail(log)
         if(goalWeight - log.weight < 0){
             if(goalWeight - log.weight < -5){
-                setWeightGoal(-2)
                 setWeightImage(twoRight)
             } else{
-                setWeightGoal(-1)
                 setWeightImage(oneRight)
             }
-        } else if(goalWeight - log.weight === 0){
-            setWeightGoal(0)
+        } else if(goalWeight-log.weight === 0){
             setWeightImage(equal)
         } else {
             if(goalWeight - log.weight < 5){
-                setWeightGoal(1)
                 setWeightImage(oneLeft)
 
             } else{
-                setWeightGoal(2)
                 setWeightImage(twoLeft)
             }
         }
@@ -80,33 +74,23 @@ function LogsContainer({logs, currentUser}) {
     }
 
     function handleLeft(){
-        if (displayLogs - 4 <= 0){
-            setDisplayLogs(0)
-            setPage(1)
-        } else{
+        if (displayLogs - 4 >= 0){
             setDisplayLogs(displayLogs - 4)
             setPage(page - 1)
         }
     }
 
     function handleRight(){
-        if (displayLogs + 4 >= logs.length){
-            if (displayLogs % 4 === 0){
-                setDisplayLogs(logs.length - 4)
-            } else{
-                setDisplayLogs(Math.ceil(logs.length / 4) * 4)
-            }
-            setPage(Math.ceil(logs.length / 4))
-        } else{
+        if (displayLogs + 4 < logs.length){
             setDisplayLogs(displayLogs + 4)
             setPage(page + 1)
-        }
+        } 
     }
 
     function end(){
-        if (displayLogs % 4 === 0){
+        if (logs.length % 4 === 0){
             setDisplayLogs(logs.length - 4)
-        } else{
+        } else {
             setDisplayLogs(Math.floor(logs.length / 4) * 4)
         }
         setPage(Math.ceil(logs.length / 4))

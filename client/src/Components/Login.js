@@ -33,54 +33,39 @@ function Login({ setCurrentUser }) {
     }
 
     return (
-      <>
         <div className="authForm">
             <form onSubmit={handleSubmit} className="login-form">
                 <h1 style={{marginBottom:"30px", marginTop:"65px", fontSize: "35px"}}>LOGIN</h1>
-            <p className="please-log">Please enter your login and password</p>
-            <p>
-            <label 
-            htmlFor="username"
-            style={{marginRight:"5px"}}
-            >
-            </label>
-            <input
-                type="text"
-                name="username"
-                className="entry"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-
-            />
-        </p>
-        <p>
-            <label 
-            htmlFor="password"
-            style={{marginRight:"5px"}}
-            >
-            </label>
-            <input
-            type="password"
-            name=""
-            placeholder="Password"
-            className="entry"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={{marginBottom:"8px"}}
-            />
-        </p>
-        <div className="error-login">{error}</div>
-        <p><button className="post-button" type="submit" >LOGIN</button></p>
-
-        <p style={{marginTop:"150px"}}> Don't have an account ? 
-        <button className="no-account"><Link to="/signup" className="no-account"><strong>Sign Up</strong></Link></button></p>
-        <img className="login-image" src={login} alt="login"/>
-        </form>
-
-    </div>
-    </>
-    
+                <p className="please-log">Please enter your login and password</p>
+                <p>
+                    <label htmlFor="username" style={{marginRight:"5px"}}/>
+                    <input
+                        type="text"
+                        name="username"
+                        className="entry"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}/>
+                </p>
+                <p>
+                    <label htmlFor="password" style={{marginRight:"5px"}}/>
+                    <input
+                    type="password"
+                    name=""
+                    placeholder="Password"
+                    className="entry"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{marginBottom:"8px"}}
+                    />
+                </p>
+                <div className="error-login">{error}</div>
+                <p><button className="post-button" type="submit" >LOGIN</button></p>
+                <p style={{marginTop:"150px"}}> Don't have an account ? 
+                <button className="no-account"><Link to="/signup" className="no-account"><strong>Sign Up</strong></Link></button></p>
+                <img className="login-image" src={login} alt="login"/>
+            </form>
+        </div>
     )
 }
 
