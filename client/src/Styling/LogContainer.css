@@ -111,7 +111,7 @@
 
 .weight-details{
     position: relative;
-    top: 28px;
+    top: 30px;
     left: 220px;
     text-align: center;
     width: fit-content;
@@ -146,4 +146,12 @@
     left: 67px;
     width: fit-content;
     height: 130px;
+}
+
+.goal-weight{
+    color: white;
+    position: absolute;
+    left: 245px;
+    top: 80px;
+    font-size: 40px;
 }

@@ -7,10 +7,10 @@ function LogCard({log, setDisplayDetail}) {
     const [message, setMessage] = useState(false)
     return (
        <div className="log-container">
-           <div class='card'>
-                <div class='info'>
+           <div className='card'>
+                <div className='info'>
                     <span className="log-details">
-                        <h1 class='title'><strong>{log.activity_type}</strong></h1>
+                        <h1 className='title'><strong>{log.activity_type}</strong></h1>
                         <span className="log-more-details">  
                             <p style={{marginLeft:"-12px"}}>|| {log.activity_duration} <em>min</em> ||</p>
                             <p style={{marginLeft:"-20px"}}>{log.date}</p>

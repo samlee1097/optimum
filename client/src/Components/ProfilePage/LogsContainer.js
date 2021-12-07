@@ -3,12 +3,13 @@ import LogCard from './LogCard';
 import loading from '../../Assets/loading.gif'
 import '../../Styling/LogContainer.css'
 
-function LogsContainer({logs}) {
+function LogsContainer({logs, currentUser}) {
 
     const [attribute, setAttribute] = useState("date");
     const [displayDetail, setDisplayDetail] = useState(null)
     const [displayLogs, setDisplayLogs] = useState(0)
     const [page, setPage] = useState(1)
+    const goalWeight = currentUser.goal_weight
 
     let newList = [...logs].sort((a,b) => {
         if (attribute === 'duration'){
@@ -51,42 +52,48 @@ function LogsContainer({logs}) {
     }  
 
     return (
-       <div className="log-controller">
-           <h2>Your Logs ({logs.length})</h2>
-           <select className="select-filter" onChange={(e)=>setAttribute(e.target.value)} name="sort" id="sort">
-                <option selected="true" disabled="disabled">Sort by...</option>    
-                <option value="date">Date</option>
-                <option value="duration">Duration</option>
-                <option value="activity">Activity</option>
-            </select>
-            <div className="logs-container-div">
-                {logs ? newList.slice(displayLogs, displayLogs + 4) : null}
-            </div>
-            <div className="next-page-logs">
-                <div className="left-page-div">
-                    <button onClick={start}>&#60;&#60;</button>
-                    <button onClick={handleLeft}>&#60;</button>
+        <div>
+            {currentUser && (<>
+            <div className="log-controller">
+            <h2>Your Logs ({logs.length})</h2>
+            <select className="select-filter" onChange={(e)=>setAttribute(e.target.value)} name="sort" id="sort">
+                    <option selected={true} disabled="disabled">Sort by...</option>    
+                    <option value="date">Date</option>
+                    <option value="duration">Duration</option>
+                    <option value="activity">Activity</option>
+                </select>
+                <div className="logs-container-div">
+                    {logs ? newList.slice(displayLogs, displayLogs + 4) : null}
                 </div>
-                <p className="page-number">{page}</p>
-                <div className="right-page-div">
-                    <button onClick={handleRight}>&#62;</button>
-                    <button onClick={end}>&#62;&#62;</button>
+                <div className="next-page-logs">
+                    <div className="left-page-div">
+                        <button onClick={start}>&#60;&#60;</button>
+                        <button onClick={handleLeft}>&#60;</button>
+                    </div>
+                    <p className="page-number">{page}</p>
+                    <div className="right-page-div">
+                        <button onClick={handleRight}>&#62;</button>
+                        <button onClick={end}>&#62;&#62;</button>
+                    </div>
+                <div className="activity-details">
+                    {displayDetail ? <div className="display-details-active">
+                        <h1>{displayDetail.activity_type}</h1>
+                        <p className="date-details">{displayDetail.date} | {displayDetail.activity_duration} min</p>
+                        <p className="happiness-details">Happiness: <br/><strong>{displayDetail.happiness}/5</strong></p>
+                        <div>
+                            {currentUser ? <p className="goal-weight">{goalWeight}</p> : null}
+                            <p className="weight-details">Weight: <br/><strong>{displayDetail.weight}lbs</strong></p>
+                        </div>
+                        {displayDetail.notes !=="" ? <p className="notes-details">Note: {displayDetail.notes}</p>: null} </div> 
+                        :
+                        <div className="display-empty">
+                            <img className="no-activity-loading" src={loading} alt="loading"/>
+                            <p className="no-activity-selected"><em>select an activity</em></p>
+                        </div>}
                 </div>
-            <div className="activity-details">
-                {displayDetail ? <div className="display-details-active">
-                    <h1>{displayDetail.activity_type}</h1>
-                    <p className="date-details">{displayDetail.date} | {displayDetail.activity_duration} min</p>
-                    <p className="happiness-details">Happiness: <br/><strong>{displayDetail.happiness}/5</strong></p>
-                    <p className="weight-details">Weight: <br/><strong>{displayDetail.weight}lbs</strong></p>
-                    {displayDetail.notes !=="" ? <p className="notes-details">Note: {displayDetail.notes}</p>: null} </div> 
-                    :
-                    <div className="display-empty">
-                        <img className="no-activity-loading" src={loading} alt="loading"/>
-                        <p className="no-activity-selected"><em>select an activity</em></p>
-                    </div>}
-            </div>
-            </div>
-       </div>
+                </div>
+            </div></>)}
+        </div>
     );
 }
 

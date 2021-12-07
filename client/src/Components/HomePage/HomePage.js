@@ -7,12 +7,12 @@ function HomePage({currentUser}) {
     return (
         <div id="container">
         <h1 className ="first-phase"><span
-                class="txt-rotate"
+                className="txt-rotate"
                 data-period="2000"
                 data-rotate='[ " Welcome  to Optimum.", "Discover your true potential.", "Realign with your best self." ]'>
             </span>
         </h1>
-        <button onClick={()=>{currentUser ?  history("/profile") : history("/login")}} class="button-30"><span class="text">Enter</span></button>
+        <button onClick={()=>{currentUser ?  history("/profile") : history("/login")}} className="button-30"><span className="text">Enter</span></button>
 
        </div>
     );
