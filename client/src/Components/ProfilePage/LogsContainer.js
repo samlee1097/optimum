@@ -107,7 +107,7 @@ function LogsContainer({logs, currentUser}) {
         if (displayLogs % 4 === 0){
             setDisplayLogs(logs.length - 4)
         } else{
-            setDisplayLogs(Math.ceil(logs.length / 4) * 4)
+            setDisplayLogs(Math.floor(logs.length / 4) * 4)
         }
         setPage(Math.ceil(logs.length / 4))
     }  
