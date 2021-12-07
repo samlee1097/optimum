@@ -130,3 +130,20 @@
     height: 57px;
     border-radius: 14px;
 }
+
+.no-activity-selected{
+    color: grey;
+    font-size: 20px;
+    position: relative;
+    margin: 0 auto;
+    width: fit-content;
+    top: 150px;
+}
+.no-activity-loading{
+    position: relative;
+    margin: 0 auto;
+    top: 100px;
+    left: 67px;
+    width: fit-content;
+    height: 130px;
+}

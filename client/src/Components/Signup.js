@@ -10,6 +10,7 @@ function Signup({ setCurrentUser }) {
   const [age, setAge] = useState(0)
   const [gender, setGender] = useState("")
   const [weight, setWeight] = useState(0)
+  const [goalWeight, setGoalWeight] = useState(0)
   const [error, setError] = useState([])
    
   const handleSubmit = (event) => {
@@ -24,7 +25,8 @@ function Signup({ setCurrentUser }) {
         password,
         age,
         weight,
-        gender
+        gender,
+        goal_weight: goalWeight
       })
     })
       .then(res => {
@@ -111,7 +113,7 @@ function Signup({ setCurrentUser }) {
         <p>
           <label 
             htmlFor="age"
-            style={{marginLeft:"-155px"}}
+            style={{marginLeft:"-320px"}}
           >
             Age
           </label>
@@ -126,7 +128,7 @@ function Signup({ setCurrentUser }) {
           />
         </p>
         
-        <p style={{position:"relative", top:"-68px", left:"310px", width: "150px"}}>
+        <p style={{position:"relative", top:"-68px", left:"210px", width: "150px"}}>
           <label 
             htmlFor="weight"
           >
@@ -143,7 +145,24 @@ function Signup({ setCurrentUser }) {
           />
         </p>
 
-        <p style={{marginTop:"-50px"}}>
+        <p style={{position:"relative", top:"-137px", left:"365px", width: "180px"}}>
+          <label 
+            htmlFor="weight"
+          >
+            Goal Weight
+          </label>
+          <input
+            type="number"
+            min="0"
+            max="999"
+            className="signup-entry-weight"
+            name="weight"
+            value={goalWeight}
+            onChange={(e) => setGoalWeight(e.target.value)}
+          />
+        </p>
+
+        <p style={{marginTop:"-110px"}}>
           <input
             type="radio"
             label="Male"

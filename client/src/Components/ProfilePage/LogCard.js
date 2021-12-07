@@ -10,7 +10,7 @@ function LogCard({log, setDisplayDetail}) {
            <div class='card'>
                 <div class='info'>
                     <span className="log-details">
-                        <h1 class='title'>{log.activity_type}</h1>
+                        <h1 class='title'><strong>{log.activity_type}</strong></h1>
                         <span className="log-more-details">  
                             <p style={{marginLeft:"-12px"}}>|| {log.activity_duration} <em>min</em> ||</p>
                             <p style={{marginLeft:"-20px"}}>{log.date}</p>

@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_11_29_182325) do
     t.integer "age"
     t.integer "weight"
     t.string "gender"
+    t.integer "goal_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

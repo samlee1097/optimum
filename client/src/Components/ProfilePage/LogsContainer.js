@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import LogCard from './LogCard';
+import loading from '../../Assets/loading.gif'
 import '../../Styling/LogContainer.css'
 
 function LogsContainer({logs}) {
@@ -47,7 +48,7 @@ function LogsContainer({logs}) {
     function end(){
         setDisplayLogs(Math.floor(logs.length / 4) * 4)
         setPage(Math.ceil(logs.length / 4))
-    }
+    }  
 
     return (
        <div className="log-controller">
@@ -77,10 +78,12 @@ function LogsContainer({logs}) {
                     <p className="date-details">{displayDetail.date} | {displayDetail.activity_duration} min</p>
                     <p className="happiness-details">Happiness: <br/><strong>{displayDetail.happiness}/5</strong></p>
                     <p className="weight-details">Weight: <br/><strong>{displayDetail.weight}lbs</strong></p>
-                    {displayDetail.notes !=="" ? <p className="notes-details">Note: {displayDetail.notes}</p>
-                    
-                    : null} </div> :
-                    <div className="display-empty"></div>}
+                    {displayDetail.notes !=="" ? <p className="notes-details">Note: {displayDetail.notes}</p>: null} </div> 
+                    :
+                    <div className="display-empty">
+                        <img className="no-activity-loading" src={loading} alt="loading"/>
+                        <p className="no-activity-selected"><em>select an activity</em></p>
+                    </div>}
             </div>
             </div>
        </div>

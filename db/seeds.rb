@@ -5,7 +5,7 @@ Log.destroy_all
 
 puts "seeding users!"
 
-User.create!(username: "sam", password: "sam", gender: "Male", age: 24, weight: 165)
+User.create!(username: "sam", password: "sam", gender: "Male", age: 24, weight: 169, goal_weight: 162)
 
 puts "seeding avatar"
 
