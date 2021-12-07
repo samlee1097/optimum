@@ -5,7 +5,7 @@
 }
 .first-phase { 
     font-size: 3.5em; 
-    font-family: 'Kanit', sans-serif;
+    font-family: "Assistant";
 }
 
 .second-phase {
@@ -35,7 +35,7 @@
   color: #36395A;
   cursor: pointer;
   display: inline-flex;
-  font-family: 'Kanit', sans-serif;
+  font-family: "Assistant";
   height: 37px;
   justify-content: center;
   line-height: 1;

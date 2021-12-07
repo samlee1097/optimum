@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Line } from "react-chartjs-2";
 import enlarge from '../../Assets/enlarge.png'
 import '../../Styling/Line.css'
-import { Chart, LineController, LineElement, PointElement, LinearScale, Title, CategoryScale } from 'chart.js';
-Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
+import { Chart, LineController, LineElement, PointElement, LinearScale,  Title, CategoryScale, Tooltip } from 'chart.js';
+Chart.register(LineController, LineElement, PointElement, LinearScale, Tooltip, Title, CategoryScale);
 
 function LineChart({logs}) {
 
@@ -32,12 +32,15 @@ function LineChart({logs}) {
         }],
         options: {
             plugins: {
-                datalabels: {
-                  clamp: true
+                legend: {
+                    display: false,
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    }
                 }
-              }
         }
-    }
+    }}
     
     const [showChart, setShowChart] = useState(true)    
 

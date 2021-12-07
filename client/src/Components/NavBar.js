@@ -16,7 +16,6 @@ const linkStyles = {
     textAlign: "center",
     border: "transparent",
     height: "fit-content",
-    fontFamily: "'Kanit', sans-serif"
 };
 
 function NavBar({setCurrentUser, currentUser}) {

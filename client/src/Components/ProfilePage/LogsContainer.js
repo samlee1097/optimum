@@ -5,6 +5,7 @@ import '../../Styling/LogContainer.css'
 function LogsContainer({logs}) {
 
     const [attribute, setAttribute] = useState("date");
+    const [displayDetail, setDisplayDetail] = useState(null)
     const [displayLogs, setDisplayLogs] = useState(0)
     const [page, setPage] = useState(1)
 
@@ -16,7 +17,7 @@ function LogsContainer({logs}) {
         } else {
                 return a.activity_type.localeCompare(b.activity_type) 
         }
-    }).map((log) => <LogCard key={log.id} log={log}/>)
+    }).map((log) => <LogCard setDisplayDetail={setDisplayDetail} key={log.id} log={log}/>)
 
     function start(){
         setDisplayLogs(0)
@@ -34,8 +35,8 @@ function LogsContainer({logs}) {
     }
 
     function handleRight(){
-        if (displayLogs + 4 > logs.length - 1){
-            setDisplayLogs(logs.length - 1)
+        if (displayLogs + 4 >= logs.length){
+            setDisplayLogs(Math.floor(logs.length / 4) * 4)
             setPage(Math.ceil(logs.length / 4))
         } else{
             setDisplayLogs(displayLogs + 4)
@@ -44,7 +45,7 @@ function LogsContainer({logs}) {
     }
 
     function end(){
-        setDisplayLogs(logs.length - 1)
+        setDisplayLogs(Math.floor(logs.length / 4) * 4)
         setPage(Math.ceil(logs.length / 4))
     }
 
@@ -70,6 +71,17 @@ function LogsContainer({logs}) {
                     <button onClick={handleRight}>&#62;</button>
                     <button onClick={end}>&#62;&#62;</button>
                 </div>
+            <div className="activity-details">
+                {displayDetail ? <div className="display-details-active">
+                    <h1>{displayDetail.activity_type}</h1>
+                    <p className="date-details">{displayDetail.date} | {displayDetail.activity_duration} min</p>
+                    <p className="happiness-details">Happiness: <br/><strong>{displayDetail.happiness}/5</strong></p>
+                    <p className="weight-details">Weight: <br/><strong>{displayDetail.weight}lbs</strong></p>
+                    {displayDetail.notes !=="" ? <p className="notes-details">Note: {displayDetail.notes}</p>
+                    
+                    : null} </div> :
+                    <div className="display-empty"></div>}
+            </div>
             </div>
        </div>
     );

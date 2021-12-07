@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "../../Styling/LogCard.css"
 
-function LogCard({log}) {
+function LogCard({log, setDisplayDetail}) {
+
+    const [liked, setLiked] = useState(false)
+    const [message, setMessage] = useState(false)
     return (
        <div className="log-container">
            <div class='card'>
@@ -9,13 +12,13 @@ function LogCard({log}) {
                     <span className="log-details">
                         <h1 class='title'>{log.activity_type}</h1>
                         <span className="log-more-details">  
-                            <p><em>Duration:</em> {log.activity_duration} min</p>
-                            <p><em>Date:</em> {log.date}</p>
+                            <p style={{marginLeft:"-12px"}}>|| {log.activity_duration} <em>min</em> ||</p>
+                            <p style={{marginLeft:"-20px"}}>{log.date}</p>
                         </span>
                         <div className="extra-details">
-                            <p>Happiness: {log.happiness}/5</p>
-                            <p>Weight: {log.weight}lbs</p>
-                            {log.notes !=="" ? <p>Note: {log.notes}</p> : null}
+                            {message ? <p className="respond" onClick={()=>setMessage(false)}>💬</p> : <p onClick={()=>setMessage(true)}>💬</p>}
+                            {liked ? <p onClick={()=>setLiked(false)}>❤️</p> : <p onClick={()=>setLiked(true)}>🤍</p>}
+                            <p onClick={()=> setDisplayDetail(log)} className="see-details">See More...</p>
                         </div>
                     </span>
                 </div>
