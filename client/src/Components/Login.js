@@ -45,7 +45,9 @@ function Login({ setCurrentUser }) {
                         className="entry"
                         placeholder="Username"
                         value={username}
-                        onChange={(e) => setUsername(e.target.value)}/>
+                        onChange={(e) => setUsername(e.target.value)}
+                        autoComplete="off"/>
+                        
                 </p>
                 <p>
                     <label htmlFor="password" style={{marginRight:"5px"}}/>
@@ -57,6 +59,7 @@ function Login({ setCurrentUser }) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     style={{marginBottom:"8px"}}
+                    autoComplete="off"
                     />
                 </p>
                 <div className="error-login">{error}</div>

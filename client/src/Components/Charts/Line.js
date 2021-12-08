@@ -11,6 +11,7 @@ function LineChart({logs}) {
         return new Date(a.date) - new Date(b.date)})
 
     const date = sortedByDate.map(log=>log.date)
+
     const happiness = sortedByDate.map(log=>log.happiness)
     const weight = sortedByDate.map(log=>log.weight)
     const duration = sortedByDate.map(log=>log.activity_duration)

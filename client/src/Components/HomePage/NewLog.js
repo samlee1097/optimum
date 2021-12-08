@@ -80,6 +80,7 @@ function NewLog({addNewLog, currentUser}){
             placeholder="Activity"
             value={activityType}
             onChange={(e) => setActivityType(e.target.value)}
+            autoComplete="off"
           />
         </p>
 
@@ -98,6 +99,7 @@ function NewLog({addNewLog, currentUser}){
             name="Duration"
             value={duration}
             onChange={(e) => setDuration(e.target.value)}
+            autoComplete="off"
           />
         </p>
         
@@ -115,6 +117,7 @@ function NewLog({addNewLog, currentUser}){
             name="weight"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
+            autoComplete="off"
           />
         </p>
         <p className="date">Date
@@ -125,6 +128,7 @@ function NewLog({addNewLog, currentUser}){
             name="date"
             value={dateEntry}
             onChange={(e) => setDate(e.target.value)}
+            autoComplete="off"
           />
         </p>
           { showCalendar ? <> <Calendar
@@ -190,6 +194,7 @@ function NewLog({addNewLog, currentUser}){
             name=""
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
+            autoComplete="off"
           />
         </p>
         <div className="error">{errorList}</div>

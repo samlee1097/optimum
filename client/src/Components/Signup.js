@@ -91,6 +91,7 @@ function Signup({ setCurrentUser }) {
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            autoComplete="off"
           />
         </p>
         <p>
@@ -107,6 +108,7 @@ function Signup({ setCurrentUser }) {
             name=""
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete="off"
           />
         </p>
         <p>
@@ -124,6 +126,7 @@ function Signup({ setCurrentUser }) {
             name="age"
             value={age}
             onChange={(e) => setAge(e.target.value)}
+            autoComplete="off"
           />
         </p>
         
@@ -141,6 +144,7 @@ function Signup({ setCurrentUser }) {
             name="weight"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
+            autoComplete="off"
           />
         </p>
 
@@ -158,6 +162,7 @@ function Signup({ setCurrentUser }) {
             name="weight"
             value={goalWeight}
             onChange={(e) => setGoalWeight(e.target.value)}
+            autoComplete="off"
           />
         </p>
 
