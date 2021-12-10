@@ -111,12 +111,15 @@
 
 .weight-details{
     position: relative;
-    top: 30px;
-    left: 220px;
+    top: 20px;
+    left: 225px;
     text-align: center;
     width: fit-content;
     font-size: 17px;
     letter-spacing: .5px;
+}
+.weightDetails{
+    font-size: 20px;
 }
 
 .notes-details{

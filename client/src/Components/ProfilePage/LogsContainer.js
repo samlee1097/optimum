@@ -123,15 +123,15 @@ function LogsContainer({logs, currentUser}) {
                 <div className="activity-details">
                     {displayDetail ? <div className="display-details-active">
                         <h1>{displayDetail.activity_type}</h1>
-                        <p className="date-details">{displayDetail.date} | {displayDetail.activity_duration} min</p>
+                        <p className="date-details">{displayDetail.date} | {displayDetail.activity_duration} min | Goal: {goalWeight}lbs</p>
                         <div>
                             <p className="happiness-level">{happinessLevel}</p>
-                            <p className="happiness-details">Happiness: <br/><strong>{displayDetail.happiness}/5</strong></p>
+                            <p className="happiness-details">Happiness: <br/><strong className='weightDetails'>{displayDetail.happiness}/5</strong></p>
                         </div>
                         <div>
                             <img className="weight-arrows" src={weightImage} alt={weightImage}/>
                             <p className="goal-weight">{Math.abs(goalWeight - displayDetail.weight)}lbs</p>
-                            <p className="weight-details">Weight: <br/><strong>{displayDetail.weight}lbs</strong></p>
+                            <p className="weight-details">Weight: <br/><strong className='weightDetails'>{displayDetail.weight}lbs</strong></p>
                         </div>
                         {displayDetail.notes !=="" ? <p className="notes-details">Note: {displayDetail.notes}</p>: null} </div> 
                         :
