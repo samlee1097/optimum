@@ -30,6 +30,9 @@ Health & fitness app in which users analyze personalized data according to their
 - NodeJS (v16), and npm
 - Heroku CLI
 - Postgresql
+- DiceBear API (for creating avatar)
+- React ChartJS
+- React
 
 <a name="setup"/>
 
@@ -53,22 +56,29 @@ $ npm start --prefix client
 
 ### Data Structure
 
-![image](https://user-images.githubusercontent.com/87099910/146798717-55e2b748-4d7a-42fb-8011-621e2149497d.png)
+![image](https://user-images.githubusercontent.com/87099910/146803758-403c8613-5465-4614-b26b-b6554b1554a0.png)
+
+### Component Hierarcy
+
+![image](https://user-images.githubusercontent.com/87099910/146804057-655d4ee9-627b-42aa-a04c-2312c665fc5c.png)
 
 ### User Stories
 
 **MVP:**
 User will be able to:
-* Log into the site 
-* View a list of all the posts from all the users on the home page 
-* * Create a new post once logged on 
-* Modify/delete a post a user has created 
-* Look at user’s profiles w/ all their posts 
-* A user can like a post once 
-* Creating a new user 
+* Sign up by via username & password
+* Login if the user already has an account
+* Change a user’s avatar
+* Sign out of their account
+* See a “my profile” page with details/graphs from the inputs of all the logs created
+* Create a log for an activity/weight with notes
+* Delete their own posts once logged on
+* Log the level of happiness and health ranking so users can see a calendar/graph with the info
+
 
 **Stretch goals:**
-* Get a followers button working that allows users to see a list of followers
-* Allow users to comment on other posts & share them onto their own profile
+* See a list of all the achievements a player completed on their profile page
+* Have a player level system where each achievement is linked to a certain amount of experience
+* Follow other users to see their logs displayed on their home 
 
 
