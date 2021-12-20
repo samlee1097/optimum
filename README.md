@@ -10,16 +10,16 @@
 
 ## Live Link
 
-https://socialize-project-v1.herokuapp.com/
+https://optimum-project.herokuapp.com/
 
 <a name="general-info"/>
 
 ## Description
 
-Microblogging and social networking app that allows users to post online diaries and blogs.
+Health & fitness app in which users analyze personalized data according to their logged fitness activity 
 
-* Developed by Javascript/React front-end and Rails/Active Record/Postgres back-end application
-* Full CRUD app that enables users to create, view, modify, and delete blogs
+* Modeled custom database schema and REST API with Active Record, PostgreSQL, and Ruby on Rails
+* Utilized DiceBear API to allow users to customize their avatars
 * Authenticated users at login by encrypting identifying account information via BCrypt
 
 <a name="technologies"/>
