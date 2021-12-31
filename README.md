@@ -42,7 +42,7 @@ Start by **forking** the project template repository and then clone the project:
 
 ```console
 $ git clone git@github.com:samlee1097/optimum.git
-$ cd socialize
+$ cd optimum
 $ npm install --prefix client
 $ sudo service postgresql start
 $ rails s
