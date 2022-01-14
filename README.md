@@ -56,7 +56,7 @@ $ npm start --prefix client
 
 ### Data Structure
 
-[image](https://user-images.githubusercontent.com/87099910/146803758-403c8613-5465-4614-b26b-b6554b1554a0.png)
+![image](https://user-images.githubusercontent.com/87099910/146803758-403c8613-5465-4614-b26b-b6554b1554a0.png)
 
 ### Component Hierarcy
 
@@ -80,5 +80,3 @@ User will be able to:
 * See a list of all the achievements a player completed on their profile page
 * Have a player level system where each achievement is linked to a certain amount of experience
 * Follow other users to see their logs displayed on their home 
-
-
